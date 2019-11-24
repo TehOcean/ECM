@@ -29,7 +29,7 @@ void main(void) {
     char j;
     char i = 0;
     char kms;
-
+//test comment to show this is for RFID 
     while (1) {
             SendLCD(0b00000001, 0);//Clear LCD
             LCD_String(A);
