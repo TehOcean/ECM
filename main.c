@@ -36,6 +36,6 @@ void main(void) {
         sprintf(buf,"%.10s",A[1]);
         ClearLCD;
         LCD_String(buf);
-        __delay_ms(100);
+        delay_s(1);
     }
 }
