@@ -9,6 +9,5 @@ void SendLCD(unsigned char Byte, char type);
 void LCD_Init(void);
 void SetLine(char line);
 void LCD_String(char *string);
-void ClearLCD();
 #endif	/* XC_HEADER_TEMPLATE_H */
 

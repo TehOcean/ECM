@@ -102,7 +102,3 @@ void LCD_String(char *string) {
         //your message to appear almost instantly)
     }
 }
-
-void ClearLCD(){
-    SendLCD(0b00000001, 0);
-}

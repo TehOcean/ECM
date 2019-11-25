@@ -12,7 +12,7 @@ volatile char A[16];
 void __interrupt(high_priority) InterruptHandlerHigh() {
     if (PIR1bits.RCIF==1) {
         A[reader]=RCREG;//reads bit to A AND clears bit
-        reader++;
+        
     }
 }
 
@@ -32,7 +32,7 @@ void main(void) {
     char kms;
 
     while (1) {
-            ClearLCD;
+            SendLCD(0b00000001, 0);//Clear LCD
             LCD_String(A);
             __delay_ms(100);
 
