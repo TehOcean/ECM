@@ -7,12 +7,12 @@
 #include <stdio.h>
 #include "serial.h"
 volatile char reader = 0;
-volatile char A[16];
+volatile char A[10];
 
 void __interrupt(high_priority) InterruptHandlerHigh() {
-    if (PIR1bits.RCIF==1) {
-        A[reader]=RCREG;//reads bit to A AND clears bit
-        
+    if (PIR1bits.RCIF == 1) {
+        A[reader] = RCREG; //reads bit to A AND clears bit
+        reader++;
     }
 }
 
@@ -25,16 +25,17 @@ void main(void) {
     INTCONbits.GIEH = 1; // enable high priority interrupts
     INTCONbits.GIEL = 1; // enable low priority interrupts
     RCONbits.IPEN = 1; //enable priority interrupts
-    PIE1bits.RCIE =1; //enable EUSART receive interrupts.
-    
+    PIE1bits.RCIE = 1; //enable EUSART receive interrupts.
+
     char j;
     char i = 0;
     char kms;
+    char buf[10];
 
     while (1) {
-            SendLCD(0b00000001, 0);//Clear LCD
-            LCD_String(A);
-            __delay_ms(100);
-
+        sprintf(buf,"%.10s",A[1]);
+        ClearLCD;
+        LCD_String(buf);
+        __delay_ms(100);
     }
 }

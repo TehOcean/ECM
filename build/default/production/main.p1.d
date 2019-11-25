@@ -1,3 +1,5 @@
 build/default/production/main.p1:  \
 main.c  \
-motor.h 
+lcd.h  \
+motor.h  \
+serial.h 

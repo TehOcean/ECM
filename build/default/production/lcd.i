@@ -5131,6 +5131,7 @@ void SendLCD(unsigned char Byte, char type);
 void LCD_Init(void);
 void SetLine(char line);
 void LCD_String(char *string);
+void ClearLCD();
 # 2 "lcd.c" 2
 
 
@@ -5224,4 +5225,8 @@ void LCD_String(char *string) {
 
 
     }
+}
+
+void ClearLCD(){
+    SendLCD(0b00000001, 0);
 }

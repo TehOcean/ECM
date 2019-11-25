@@ -3,8 +3,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./motor.h: 9: struct DC_motor {
 [s S315 `uc 1 `uc 1 `*uc 1 `*uc 1 `uc 1 `i 1 ]
 [n S315 DC_motor power direction dutyLowByte dutyHighByte dir_pin PWMperiod ]
+[t ~ __interrupt . k ]
+[t T36 __interrupt high_priority ]
+"3617 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3617:     struct {
+[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S130 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"3626
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3626:     struct {
+[s S131 :4 `uc 1 :1 `uc 1 ]
+[n S131 . . TBIF ]
+"3630
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3630:     struct {
+[s S132 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S132 . . TX1IF RC1IF ]
+"3616
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3616: typedef union {
+[u S129 `S130 1 `S131 1 `S132 1 ]
+[n S129 . . . . ]
+"3636
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3636: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS129 ~T0 @X0 0 e@3998 ]
+"4851
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 4851: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 [p mainexit ]
-"6702 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
+"6702
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6702: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
 "6708
@@ -26,24 +50,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6728
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6728: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
 [v _OSCCONbits `VS290 ~T0 @X0 0 e@4051 ]
-"18 ./motor.h
-[; ;./motor.h: 18: void initMotor();
-[v _initMotor `(v ~T0 @X0 0 e? ]
-"23
-[; ;./motor.h: 23: void fullSpeedAhead(struct DC_motor *m_L, struct DC_motor *m_R);
-[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S315`*S315 ]
-"25
-[; ;./motor.h: 25: void delay_s(int seconds);
-[v _delay_s `(v ~T0 @X0 0 ef1`i ]
-"20
-[; ;./motor.h: 20: void stop(struct DC_motor *m_L, struct DC_motor *m_R);
-[v _stop `(v ~T0 @X0 0 ef2`*S315`*S315 ]
-"21
-[; ;./motor.h: 21: void turnLeft(struct DC_motor *m_L, struct DC_motor *m_R);
-[v _turnLeft `(v ~T0 @X0 0 ef2`*S315`*S315 ]
-"22
-[; ;./motor.h: 22: void turnRight(struct DC_motor *m_L, struct DC_motor *m_R);
-[v _turnRight `(v ~T0 @X0 0 ef2`*S315`*S315 ]
+"7 ./serial.h
+[; ;./serial.h: 7: void initSerial();
+[v _initSerial `(v ~T0 @X0 0 e? ]
+"9 ./lcd.h
+[; ;./lcd.h: 9: void LCD_Init(void);
+[v _LCD_Init `(v ~T0 @X0 0 ef ]
+"10
+[; ;./lcd.h: 10: void SetLine(char line);
+[v _SetLine `(v ~T0 @X0 0 ef1`uc ]
+"7313 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7313:     struct {
+[s S308 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S308 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7323
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7323:     struct {
+[s S309 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S309 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7333
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7333:     struct {
+[s S310 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S310 . . GIEL GIEH ]
+"7312
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7312: typedef union {
+[u S307 `S308 1 `S309 1 `S310 1 ]
+[n S307 . . . . ]
+"7339
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7339: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS307 ~T0 @X0 0 e@4082 ]
+"6473
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6473:     struct {
+[s S277 :1 `uc 1 ]
+[n S277 . NOT_BOR ]
+"6476
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6476:     struct {
+[s S278 :1 `uc 1 :1 `uc 1 ]
+[n S278 . . NOT_POR ]
+"6480
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6480:     struct {
+[s S279 :2 `uc 1 :1 `uc 1 ]
+[n S279 . . NOT_PD ]
+"6484
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6484:     struct {
+[s S280 :3 `uc 1 :1 `uc 1 ]
+[n S280 . . NOT_TO ]
+"6488
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6488:     struct {
+[s S281 :4 `uc 1 :1 `uc 1 ]
+[n S281 . . NOT_RI ]
+"6492
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6492:     struct {
+[s S282 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S282 . nBOR nPOR nPD nTO nRI . IPEN ]
+"6501
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6501:     struct {
+[s S283 :7 `uc 1 :1 `uc 1 ]
+[n S283 . . NOT_IPEN ]
+"6505
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6505:     struct {
+[s S284 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S284 . BOR POR PD TO RI . nIPEN ]
+"6472
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6472: typedef union {
+[u S276 `S277 1 `S278 1 `S279 1 `S280 1 `S281 1 `S282 1 `S283 1 `S284 1 ]
+[n S276 . . . . . . . . . ]
+"6515
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6515: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
+[v _RCONbits `VS276 ~T0 @X0 0 e@4048 ]
+"3537
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3537:     struct {
+[s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"3546
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3546:     struct {
+[s S127 :4 `uc 1 :1 `uc 1 ]
+[n S127 . . TBIE ]
+"3550
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3550:     struct {
+[s S128 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S128 . . TX1IE RC1IE ]
+"3536
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3536: typedef union {
+[u S125 `S126 1 `S127 1 `S128 1 ]
+[n S125 . . . . ]
+"3556
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3556: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS125 ~T0 @X0 0 e@3997 ]
+"113 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"12 ./lcd.h
+[; ;./lcd.h: 12: void ClearLCD();
+[v _ClearLCD `(v ~T0 @X0 0 e? ]
+"11
+[; ;./lcd.h: 11: void LCD_String(char *string);
+[v _LCD_String `(v ~T0 @X0 0 ef1`*uc ]
+[v F2763 `(v ~T0 @X0 1 tf1`ul ]
+"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
+[v __delay `JF2763 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -584,6 +688,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"3 main.c
+[p x OSC = IRCIO ]
 "6 ./motor.h
 [; ;./motor.h: 6: volatile struct DC_motor motorL, motorR;
 [v _motorL `VS315 ~T0 @X0 1 e ]
@@ -594,65 +700,116 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TurningSpeed
 -> -> 75 `i `uc
 ]
-"3 main.c
-[; ;main.c: 3: 
-[p x OSC = IRCIO ]
+"9 main.c
+[; ;main.c: 9: volatile char reader = 0;
+[v _reader `Vuc ~T0 @X0 1 e ]
+[i _reader
+-> -> 0 `i `uc
+]
+"10
+[; ;main.c: 10: volatile char A[10];
+[v _A `Vuc ~T0 @X0 -> 10 `i e ]
+[v $root$_InterruptHandlerHigh `(v ~T0 @X0 0 e ]
+"12
+[; ;main.c: 12: void __attribute__((picinterrupt(("high_priority")))) InterruptHandlerHigh() {
+[v _InterruptHandlerHigh `(v ~T36 @X0 1 ef ]
+{
+[e :U _InterruptHandlerHigh ]
+[f ]
+"13
+[; ;main.c: 13:     if (PIR1bits.RCIF == 1) {
+[e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 321  ]
+{
+"14
+[; ;main.c: 14:         A[reader] = RCREG;
+[e = *U + &U _A * -> _reader `ux -> -> # *U &U _A `ui `ux -> _RCREG `uc ]
+"15
+[; ;main.c: 15:         reader++;
+[e ++ _reader -> -> 1 `i `Vuc ]
+"16
+[; ;main.c: 16:     }
+}
+[e :U 321 ]
+"17
+[; ;main.c: 17: }
+[e :UE 320 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"6
-[; ;main.c: 6:     while (1) {
+"19
+[; ;main.c: 19: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"7
-[; ;main.c: 7:         fullSpeedAhead(&motorL, &motorR);
-[e = _OSCCON -> -> 114 `i `uc ]
-"9
-[; ;main.c: 9:         stop(&motorL, &motorR);
-[e $U 318  ]
-[e :U 319 ]
-[e :U 318 ]
-[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 319  ]
-[e :U 320 ]
-"10
-[; ;main.c: 10:         delay_s(1);
-[e ( _initMotor ..  ]
-"11
-[; ;main.c: 11:         turnLeft(&motorL, &motorR);
-[e :U 322 ]
-{
-"12
-[; ;main.c: 12:         delay_s(1);
-[e ( _fullSpeedAhead (2 , -> &U _motorL `*S315 -> &U _motorR `*S315 ]
-"13
-[; ;main.c: 13:         turnRight(&motorL, &motorR);
-[e ( _delay_s (1 -> 1 `i ]
-"14
-[; ;main.c: 14:         delay_s(1);
-[e ( _stop (2 , -> &U _motorL `*S315 -> &U _motorR `*S315 ]
-"15
-[; ;main.c: 15:         stop(&motorL, &motorR);
-[e ( _delay_s (1 -> 1 `i ]
-"16
-[; ;main.c: 16:         delay_s(1);
-[e ( _turnLeft (2 , -> &U _motorL `*S315 -> &U _motorR `*S315 ]
-"17
-[; ;main.c: 17:     }
-[e ( _delay_s (1 -> 1 `i ]
-"18
-[; ;main.c: 18: }
-[e ( _turnRight (2 , -> &U _motorL `*S315 -> &U _motorR `*S315 ]
-"19
-[e ( _delay_s (1 -> 1 `i ]
 "20
-[e ( _stop (2 , -> &U _motorL `*S315 -> &U _motorR `*S315 ]
+[; ;main.c: 20:     OSCCON = 0x72;
+[e = _OSCCON -> -> 114 `i `uc ]
 "21
-[e ( _delay_s (1 -> 1 `i ]
-"22
-}
-[e :U 321 ]
-[e $U 322  ]
+[; ;main.c: 21:     while (!OSCCONbits.IOFS);
+[e $U 323  ]
+[e :U 324 ]
 [e :U 323 ]
+[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 324  ]
+[e :U 325 ]
+"22
+[; ;main.c: 22:     initSerial();
+[e ( _initSerial ..  ]
 "23
-[e :UE 317 ]
+[; ;main.c: 23:     LCD_Init();
+[e ( _LCD_Init ..  ]
+"24
+[; ;main.c: 24:     SetLine(1);
+[e ( _SetLine (1 -> -> 1 `i `uc ]
+"25
+[; ;main.c: 25:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"26
+[; ;main.c: 26:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"27
+[; ;main.c: 27:     RCONbits.IPEN = 1;
+[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
+"28
+[; ;main.c: 28:     PIE1bits.RCIE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"30
+[; ;main.c: 30:     char j;
+[v _j `uc ~T0 @X0 1 a ]
+"31
+[; ;main.c: 31:     char i = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+"32
+[; ;main.c: 32:     char kms;
+[v _kms `uc ~T0 @X0 1 a ]
+"33
+[; ;main.c: 33:     char buf[10];
+[v _buf `uc ~T0 @X0 -> 10 `i a ]
+"35
+[; ;main.c: 35:     while (1) {
+[e :U 327 ]
+{
+"36
+[; ;main.c: 36:         sprintf(buf,"%.10s",A[1]);
+[e ( _sprintf (1 , (. , &U _buf :s 1C -> *U + &U _A * -> -> -> 1 `i `ui `ux -> -> # *U &U _A `ui `ux `i ]
+"37
+[; ;main.c: 37:         ClearLCD;
+[e &U _ClearLCD ]
+"38
+[; ;main.c: 38:         LCD_String(buf);
+[e ( _LCD_String (1 &U _buf ]
+"39
+[; ;main.c: 39:         _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"40
+[; ;main.c: 40:     }
 }
+[e :U 326 ]
+[e $U 327  ]
+[e :U 328 ]
+"41
+[; ;main.c: 41: }
+[e :UE 322 ]
+}
+[p f _sprintf 8716288 ]
+[a 1C 37 46 49 48 115 0 ]
