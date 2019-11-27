@@ -5377,11 +5377,33 @@ char getCharSerial(void);
 
 volatile char reader = 0;
 volatile char A[15];
+volatile int right;
+volatile int left;
 
 void __attribute__((picinterrupt(("high_priority")))) InterruptHandlerHigh() {
     if (PIR1bits.RCIF == 1) {
         A[reader] = RCREG;
         reader++;
+    }
+}
+
+void __attribute__((picinterrupt(("low_priority")))) InterruptHandlerLow() {
+    if (INTCONbits.INT0IF = 1) {
+        TMR1 = 0;
+        INTCONbits.INT0IF = 0;
+
+        if (PIR1bits.CCP1IF = 1) {
+            ClearLCD();
+            SetLine(1);
+            SendLCD(CCPR1H, 1);
+            PIR1bits.CCP1IF = 0;
+        }
+        if (PIR2bits.CCP2IF = 1) {
+            ClearLCD();
+            SetLine(2);
+            SendLCD(CCPR2H, 1);
+            PIR2bits.CCP2IF = 0;
+        }
     }
 }
 
@@ -5391,23 +5413,35 @@ void main(void) {
     initSerial();
     LCD_Init();
     SetLine(1);
+
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
     RCONbits.IPEN = 1;
     PIE1bits.RCIE = 1;
 
-    char i;
-    char buf[10];
+    TRISCbits.RC1 = 1;
+    TRISCbits.RC2 = 1;
+    TRISCbits.RC3 = 1;
+    CCP1CONbits.CCP1M3 = 0;
+    CCP1CONbits.CCP1M2 = 1;
+    CCP1CONbits.CCP1M1 = 0;
+    CCP1CONbits.CCP1M0 = 1;
 
+    CCP2CONbits.CCP2M3 = 0;
+    CCP2CONbits.CCP2M2 = 1;
+    CCP2CONbits.CCP2M1 = 0;
+    CCP2CONbits.CCP2M0 = 1;
+
+    INTCONbits.INT0IE = 1;
+    INTCON2bits.INTEDG0 = 0;
+
+    T1CONbits.TMR1ON = 1;
+    T1CONbits.RD16 = 1;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.T1OSCEN = 1;
+    T1CONbits.T1CKPS0 = 1;
+    T1CONbits.T1CKPS1 = 1;
+# 83 "main.c"
     while (1) {
-        if (reader == 15) {
-            for (i = 0; i<10; i++) {
-                buf[i] = A[i + 1];
-            }
-
-            ClearLCD;
-            LCD_String(buf);
-            delay_s(1);
-        }
     }
 }

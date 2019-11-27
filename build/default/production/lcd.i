@@ -5147,8 +5147,8 @@ void E_TOG(void) {
 
 void LCDout(unsigned char number) {
 
-    LATCbits.LATC1 = number & 0b0001;
-    LATCbits.LATC2 = (number & 0b0010) >> 1;
+    LATDbits.LATD3 = number & 0b0001;
+    LATDbits.LATD2 = (number & 0b0010) >> 1;
     LATDbits.LATD0 = (number & 0b0100) >> 2;
     LATDbits.LATD1 = (number & 0b1000) >> 3;
     E_TOG();
@@ -5173,15 +5173,15 @@ void LCD_Init(void) {
 
     TRISAbits.RA6 = 0;
     TRISCbits.RC0 = 0;
-    TRISCbits.RC1 = 0;
-    TRISCbits.RC2 = 0;
+    TRISDbits.RD3 = 0;
+    TRISDbits.RD2 = 0;
     TRISDbits.RD0 = 0;
     TRISDbits.RD1 = 0;
 
     LATAbits.LA6 = 0;
     LATCbits.LC0 = 0;
-    LATCbits.LC1 = 0;
-    LATCbits.LC2 = 0;
+    LATDbits.LD1 = 0;
+    LATDbits.LD2 = 0;
     LATDbits.LD0 = 0;
     LATDbits.LD1 = 0;
 # 64 "lcd.c"

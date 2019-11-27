@@ -660,11 +660,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _number `uc ~T0 @X0 1 r1 ]
 [f ]
 "16
-[; ;lcd.c: 16:     LATCbits.LATC1 = number & 0b0001;
-[e = . . _LATCbits 0 1 -> & -> _number `i -> 1 `i `uc ]
+[; ;lcd.c: 16:     LATDbits.LATD3 = number & 0b0001;
+[e = . . _LATDbits 0 3 -> & -> _number `i -> 1 `i `uc ]
 "17
-[; ;lcd.c: 17:     LATCbits.LATC2 = (number & 0b0010) >> 1;
-[e = . . _LATCbits 0 2 -> >> & -> _number `i -> 2 `i -> 1 `i `uc ]
+[; ;lcd.c: 17:     LATDbits.LATD2 = (number & 0b0010) >> 1;
+[e = . . _LATDbits 0 2 -> >> & -> _number `i -> 2 `i -> 1 `i `uc ]
 "18
 [; ;lcd.c: 18:     LATDbits.LATD0 = (number & 0b0100) >> 2;
 [e = . . _LATDbits 0 0 -> >> & -> _number `i -> 4 `i -> 2 `i `uc ]
@@ -721,11 +721,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 41:     TRISCbits.RC0 = 0;
 [e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
 "42
-[; ;lcd.c: 42:     TRISCbits.RC1 = 0;
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;lcd.c: 42:     TRISDbits.RD3 = 0;
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
 "43
-[; ;lcd.c: 43:     TRISCbits.RC2 = 0;
-[e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
+[; ;lcd.c: 43:     TRISDbits.RD2 = 0;
+[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
 "44
 [; ;lcd.c: 44:     TRISDbits.RD0 = 0;
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
@@ -739,11 +739,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcd.c: 48:     LATCbits.LC0 = 0;
 [e = . . _LATCbits 1 0 -> -> 0 `i `uc ]
 "49
-[; ;lcd.c: 49:     LATCbits.LC1 = 0;
-[e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
+[; ;lcd.c: 49:     LATDbits.LD1 = 0;
+[e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "50
-[; ;lcd.c: 50:     LATCbits.LC2 = 0;
-[e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
+[; ;lcd.c: 50:     LATDbits.LD2 = 0;
+[e = . . _LATDbits 1 2 -> -> 0 `i `uc ]
 "51
 [; ;lcd.c: 51:     LATDbits.LD0 = 0;
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
