@@ -5229,4 +5229,5 @@ void LCD_String(char *string) {
 
 void ClearLCD(){
     SendLCD(0b00000001, 0);
+    _delay((unsigned long)((2)*(8000000/4000.0)));
 }

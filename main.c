@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include "serial.h"
 volatile char reader = 0;
-volatile char A[10];
+volatile char A[15];
 
 void __interrupt(high_priority) InterruptHandlerHigh() {
     if (PIR1bits.RCIF == 1) {
@@ -27,15 +27,18 @@ void main(void) {
     RCONbits.IPEN = 1; //enable priority interrupts
     PIE1bits.RCIE = 1; //enable EUSART receive interrupts.
 
-    char j;
-    char i = 0;
-    char kms;
+    char i;
     char buf[10];
-
+    
     while (1) {
-        sprintf(buf,"%.10s",A[1]);
-        ClearLCD;
-        LCD_String(buf);
-        delay_s(1);
+        if (reader == 15) {
+            for (i = 0; i<10; i++) {
+                buf[i] = A[i + 1];
+            }
+            //sprintf(buf, "%.10s", A[1]);
+            ClearLCD;
+            LCD_String(buf);
+            delay_s(1);
+        }
     }
 }

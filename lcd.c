@@ -105,4 +105,5 @@ void LCD_String(char *string) {
 
 void ClearLCD(){
     SendLCD(0b00000001, 0);
+    __delay_ms(2);
 }

@@ -3,16 +3,8 @@
 [d edition pro ]
 [d chip 18F4331 ]
 [d frameptr 4065 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-[v _atoi atoi `(i  1 e 2 0 ]
 "7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"546 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\doprnt.c
-[v _stoa stoa `(i  1 s 2 stoa ]
-"670
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-"1368
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\float.c
@@ -25,18 +17,6 @@
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-[v _isdigit isdigit `(i  1 e 2 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-[v _isspace isspace `(i  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-"9 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -45,8 +25,6 @@
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul32.c
@@ -71,6 +49,8 @@
 [v _main main `(v  1 e 1 0 ]
 "41 C:\Users\ossia\Documents\ECM\ECM\motor.c
 [v _setMotorPWM setMotorPWM `(v  1 e 1 0 ]
+"107
+[v _delay_s delay_s `(v  1 e 1 0 ]
 "9 C:\Users\ossia\Documents\ECM\ECM\serial.c
 [v _sendCharSerial sendCharSerial `(v  1 e 1 0 ]
 "26
@@ -472,124 +452,34 @@
 ]
 [u S868 . 1 `S846 1 . 1 0 `S855 1 . 1 0 `S864 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES868  1 e 1 @4082 ]
-"55 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\doprnt.c
-[v _flags flags `i  1 s 2 flags ]
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"69
-[v _nout nout `i  1 s 2 nout ]
 "9 C:\Users\ossia\Documents\ECM\ECM\main.c
 [v _reader reader `VEuc  1 e 1 0 ]
 "10
-[v _A A `VE[10]uc  1 e 10 0 ]
+[v _A A `VE[15]uc  1 e 15 0 ]
 "19
 [v _main main `(v  1 e 1 0 ]
 {
-"33
-[v main@buf buf `[10]uc  1 a 10 0 ]
-"41
+"31
+[v main@buf buf `[10]uc  1 a 10 15 ]
+"30
+[v main@i i `uc  1 a 1 25 ]
+"44
 } 0
-"9 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
+"26 C:\Users\ossia\Documents\ECM\ECM\serial.c
+[v _initSerial initSerial `(v  1 e 1 0 ]
 {
-[s S1607 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-"13
-[v sprintf@f f `S1607  1 a 6 65 ]
-"12
-[v sprintf@ap ap `[1]*.39v  1 a 2 63 ]
-"9
-[v sprintf@s s `*.39uc  1 p 2 55 ]
-[v sprintf@fmt fmt `*.25Cuc  1 p 2 57 ]
-"23
+"37
 } 0
-"1368 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"107 C:\Users\ossia\Documents\ECM\ECM\motor.c
+[v _delay_s delay_s `(v  1 e 1 0 ]
 {
-"1371
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 53 ]
-[s S1062 _IO_FILE 0 ]
-"1368
-[v vfprintf@fp fp `*.39S1062  1 p 2 47 ]
-[v vfprintf@fmt fmt `*.25Cuc  1 p 2 49 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 51 ]
-"1382
-} 0
-"670
-[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
-{
-"672
-[v vfpfcnvrt@cp cp `*.39uc  1 a 2 43 ]
-[s S1062 _IO_FILE 0 ]
-"670
-[v vfpfcnvrt@fp fp `*.39S1062  1 p 2 33 ]
-[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 35 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 37 ]
-"1365
-} 0
-"546
-[v _stoa stoa `(i  1 s 2 stoa ]
-{
-"548
-[v stoa@nuls nuls `[7]uc  1 a 7 16 ]
-"549
-[v stoa@l l `i  1 a 2 31 ]
-[v stoa@p p `i  1 a 2 29 ]
-"548
-[v stoa@cp cp `*.39uc  1 a 2 27 ]
-"549
-[v stoa@w w `i  1 a 2 25 ]
-[v stoa@i i `i  1 a 2 23 ]
-[s S1062 _IO_FILE 0 ]
-"546
-[v stoa@fp fp `*.39S1062  1 p 2 11 ]
-[v stoa@s s `*.39uc  1 p 2 13 ]
-"548
-[v stoa@F1131 F1131 `[7]uc  1 s 7 F1131 ]
-"589
-} 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-"7
-[v strlen@a a `*.39Cuc  1 a 2 4 ]
-"5
-[v strlen@s s `*.39Cuc  1 p 2 2 ]
-"12
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 2 ]
-[s S1607 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S1607  1 p 2 4 ]
-"21
-} 0
-"7 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\atoi.c
-[v _atoi atoi `(i  1 e 2 0 ]
-{
-"6
-[v atoi@n n `i  1 a 2 22 ]
-[v atoi@neg neg `i  1 a 2 15 ]
-"4
-[v atoi@s s `*.25Cuc  1 p 2 9 ]
-"16
-} 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isspace.c
-[v _isspace isspace `(i  1 e 2 0 ]
-{
-[v isspace@c c `i  1 p 2 2 ]
-"8
-} 0
-"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\isdigit.c
-[v _isdigit isdigit `(i  1 e 2 0 ]
-{
-[v isdigit@c c `i  1 p 2 2 ]
-"8
+"110
+[v delay_s@j j `ui  1 a 2 13 ]
+"108
+[v delay_s@i i `ui  1 a 2 11 ]
+"107
+[v delay_s@seconds seconds `i  1 p 2 8 ]
+"114
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -600,11 +490,6 @@
 [v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
 "53
-} 0
-"26 C:\Users\ossia\Documents\ECM\ECM\serial.c
-[v _initSerial initSerial `(v  1 e 1 0 ]
-{
-"37
 } 0
 "85 C:\Users\ossia\Documents\ECM\ECM\lcd.c
 [v _SetLine SetLine `(v  1 e 1 0 ]

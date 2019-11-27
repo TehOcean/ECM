@@ -136,18 +136,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3556
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 3556: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS125 ~T0 @X0 0 e@3997 ]
-"113 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c99\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "12 ./lcd.h
 [; ;./lcd.h: 12: void ClearLCD();
 [v _ClearLCD `(v ~T0 @X0 0 e? ]
 "11
 [; ;./lcd.h: 11: void LCD_String(char *string);
 [v _LCD_String `(v ~T0 @X0 0 ef1`*uc ]
-[v F2763 `(v ~T0 @X0 1 tf1`ul ]
-"187 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18.h
-[v __delay `JF2763 ~T0 @X0 0 e ]
-[p i __delay ]
+"25 ./motor.h
+[; ;./motor.h: 25: void delay_s(int seconds);
+[v _delay_s `(v ~T0 @X0 0 ef1`i ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -707,8 +704,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "10
-[; ;main.c: 10: volatile char A[10];
-[v _A `Vuc ~T0 @X0 -> 10 `i e ]
+[; ;main.c: 10: volatile char A[15];
+[v _A `Vuc ~T0 @X0 -> 15 `i e ]
 [v $root$_InterruptHandlerHigh `(v ~T0 @X0 0 e ]
 "12
 [; ;main.c: 12: void __attribute__((picinterrupt(("high_priority")))) InterruptHandlerHigh() {
@@ -773,43 +770,57 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 28:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 "30
-[; ;main.c: 30:     char j;
-[v _j `uc ~T0 @X0 1 a ]
-"31
-[; ;main.c: 31:     char i = 0;
+[; ;main.c: 30:     char i;
 [v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-"32
-[; ;main.c: 32:     char kms;
-[v _kms `uc ~T0 @X0 1 a ]
-"33
-[; ;main.c: 33:     char buf[10];
+"31
+[; ;main.c: 31:     char buf[10];
 [v _buf `uc ~T0 @X0 -> 10 `i a ]
-"35
-[; ;main.c: 35:     while (1) {
+"33
+[; ;main.c: 33:     while (1) {
 [e :U 327 ]
 {
+"34
+[; ;main.c: 34:         if (reader == 15) {
+[e $ ! == -> _reader `i -> 15 `i 329  ]
+{
+"35
+[; ;main.c: 35:             for (i = 0; i<10; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 10 `i 330  ]
+[e $U 331  ]
+[e :U 330 ]
+{
 "36
-[; ;main.c: 36:         sprintf(buf,"%.10s",A[1]);
-[e ( _sprintf (1 , (. , &U _buf :s 1C -> *U + &U _A * -> -> -> 1 `i `ui `ux -> -> # *U &U _A `ui `ux `i ]
+[; ;main.c: 36:                 buf[i] = A[i + 1];
+[e = *U + &U _buf * -> _i `ux -> -> # *U &U _buf `ui `ux *U + &U _A * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _A `ui `ux ]
 "37
-[; ;main.c: 37:         ClearLCD;
-[e &U _ClearLCD ]
-"38
-[; ;main.c: 38:         LCD_String(buf);
-[e ( _LCD_String (1 &U _buf ]
+[; ;main.c: 37:             }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 10 `i 330  ]
+[e :U 331 ]
+}
 "39
-[; ;main.c: 39:         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 39:             ClearLCD;
+[e &U _ClearLCD ]
 "40
-[; ;main.c: 40:     }
+[; ;main.c: 40:             LCD_String(buf);
+[e ( _LCD_String (1 &U _buf ]
+"41
+[; ;main.c: 41:             delay_s(1);
+[e ( _delay_s (1 -> 1 `i ]
+"42
+[; ;main.c: 42:         }
+}
+[e :U 329 ]
+"43
+[; ;main.c: 43:     }
 }
 [e :U 326 ]
 [e $U 327  ]
 [e :U 328 ]
-"41
-[; ;main.c: 41: }
+"44
+[; ;main.c: 44: }
 [e :UE 322 ]
 }
-[p f _sprintf 8716288 ]
-[a 1C 37 46 49 48 115 0 ]
