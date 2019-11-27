@@ -7,6 +7,7 @@
       <itemPath>lcd.h</itemPath>
       <itemPath>motor.h</itemPath>
       <itemPath>serial.h</itemPath>
+      <itemPath>led.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,6 +20,7 @@
       <itemPath>motor.c</itemPath>
       <itemPath>serial.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>led.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

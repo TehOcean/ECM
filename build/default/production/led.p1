@@ -1,33 +1,46 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"6702 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6702: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"6708
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6708:     struct {
-[s S291 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S291 . SCS IOFS OSTS IRCF IDLEN ]
-"6715
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6715:     struct {
-[s S292 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S292 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"6723
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6723:     struct {
-[s S293 :2 `uc 1 :1 `uc 1 ]
-[n S293 . . FLTS ]
-"6707
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6707: typedef union {
-[u S290 `S291 1 `S292 1 `S293 1 ]
-[n S290 . . . . ]
-"6728
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6728: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS290 ~T0 @X0 0 e@4051 ]
-"6 ./led.h
-[; ;./led.h: 6: void LEDInit();
-[v _LEDInit `(v ~T0 @X0 0 e? ]
-"5
-[; ;./led.h: 5: void LEDout(int number);
-[v _LEDout `(v ~T0 @X0 0 ef1`i ]
+"2094 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2094:     struct {
+[s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S80 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"2104
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2104:     struct {
+[s S81 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S81 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"2093
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2093: typedef union {
+[u S79 `S80 1 `S81 1 ]
+[n S79 . . . ]
+"2115
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2115: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
+[v _LATDbits `VS79 ~T0 @X0 0 e@3980 ]
+"1982
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 1982:     struct {
+[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S77 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"1992
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 1992:     struct {
+[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S78 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
+"1981
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 1981: typedef union {
+[u S76 `S77 1 `S78 1 ]
+[n S76 . . . ]
+"2003
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2003: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
+[v _LATCbits `VS76 ~T0 @X0 0 e@3979 ]
+"1976
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 1976: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"2088
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2088: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"2717
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2717: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"2939
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 2939: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -568,42 +581,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"3 main.c
-[p x OSC = IRCIO ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"42
-[; ;main.c: 42: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
+"4 led.c
+[; ;led.c: 4: void LEDout(int number) {
+[v _LEDout `(v ~T0 @X0 1 ef1`i ]
 {
-[e :U _main ]
+[e :U _LEDout ]
+[v _number `i ~T0 @X0 1 r1 ]
 [f ]
-"43
-[; ;main.c: 43:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"44
-[; ;main.c: 44:     while (!OSCCONbits.IOFS);
-[e $U 318  ]
-[e :U 319 ]
-[e :U 318 ]
-[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 319  ]
-[e :U 320 ]
-"66
-[; ;main.c: 66:     LEDInit();
-[e ( _LEDInit ..  ]
-"85
-[; ;main.c: 85: LEDout(84);
-[e ( _LEDout (1 -> 84 `i ]
-"86
-[; ;main.c: 86:     while (1) {
-[e :U 322 ]
-{
-"94
-[; ;main.c: 94:     }
+"5
+[; ;led.c: 5:     LATDbits.LATD2 = number & 0b00000001;
+[e = . . _LATDbits 0 2 -> & _number -> 1 `i `uc ]
+"6
+[; ;led.c: 6:     LATDbits.LATD3 = number & 0b00000010;
+[e = . . _LATDbits 0 3 -> & _number -> 2 `i `uc ]
+"7
+[; ;led.c: 7:     LATCbits.LATC4 = number & 0b00000100;
+[e = . . _LATCbits 0 4 -> & _number -> 4 `i `uc ]
+"8
+[; ;led.c: 8:     LATCbits.LATC5 = number & 0b00001000;
+[e = . . _LATCbits 0 5 -> & _number -> 8 `i `uc ]
+"9
+[; ;led.c: 9:     LATCbits.LATC6 = number & 0b00010000;
+[e = . . _LATCbits 0 6 -> & _number -> 16 `i `uc ]
+"10
+[; ;led.c: 10:     LATCbits.LATC7 = number & 0b00100000;
+[e = . . _LATCbits 0 7 -> & _number -> 32 `i `uc ]
+"11
+[; ;led.c: 11:     LATDbits.LATD4 = number & 0b01000000;
+[e = . . _LATDbits 0 4 -> & _number -> 64 `i `uc ]
+"12
+[; ;led.c: 12:     LATDbits.LATD5 = number & 0b10000000;
+[e = . . _LATDbits 0 5 -> & _number -> 128 `i `uc ]
+"15
+[; ;led.c: 15: }
+[e :UE 314 ]
 }
-[e :U 321 ]
-[e $U 322  ]
-[e :U 323 ]
-"95
-[; ;main.c: 95: }
-[e :UE 317 ]
+"17
+[; ;led.c: 17: void LEDInit() {
+[v _LEDInit `(v ~T0 @X0 1 ef ]
+{
+[e :U _LEDInit ]
+[f ]
+"34
+[; ;led.c: 34:     LATC = 0;
+[e = _LATC -> -> 0 `i `uc ]
+"35
+[; ;led.c: 35:     LATD = 0;
+[e = _LATD -> -> 0 `i `uc ]
+"36
+[; ;led.c: 36:     TRISC = 0;
+[e = _TRISC -> -> 0 `i `uc ]
+"37
+[; ;led.c: 37:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"39
+[; ;led.c: 39: }
+[e :UE 315 ]
 }
