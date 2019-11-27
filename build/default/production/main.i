@@ -5393,15 +5393,11 @@ void __attribute__((picinterrupt(("low_priority")))) InterruptHandlerLow() {
         INTCONbits.INT0IF = 0;
 
         if (PIR1bits.CCP1IF = 1) {
-            ClearLCD();
-            SetLine(1);
-            SendLCD(CCPR1H, 1);
+            left=CCPR1L;
             PIR1bits.CCP1IF = 0;
         }
         if (PIR2bits.CCP2IF = 1) {
-            ClearLCD();
-            SetLine(2);
-            SendLCD(CCPR2H, 1);
+            right=CCPR2L;
             PIR2bits.CCP2IF = 0;
         }
     }
@@ -5438,10 +5434,17 @@ void main(void) {
     T1CONbits.TMR1ON = 1;
     T1CONbits.RD16 = 1;
     T1CONbits.TMR1CS = 0;
-    T1CONbits.T1OSCEN = 1;
+    T1CONbits.T1OSCEN = 0;
     T1CONbits.T1CKPS0 = 1;
     T1CONbits.T1CKPS1 = 1;
-# 83 "main.c"
+    T1CONbits.T1RUN=1;
+# 80 "main.c"
     while (1) {
+        if (left>right){
+            turnLeft(&motorL, &motorR);
+        }
+        else {
+            turnRight(&motorL, &motorR);
+        }
     }
 }

@@ -24,15 +24,11 @@ void __interrupt(low_priority) InterruptHandlerLow() {
         INTCONbits.INT0IF = 0;
 
         if (PIR1bits.CCP1IF = 1) {
-            ClearLCD();
-            SetLine(1);
-            SendLCD(CCPR1H, 1);
+            left=CCPR1L;
             PIR1bits.CCP1IF = 0;
         }
         if (PIR2bits.CCP2IF = 1) {
-            ClearLCD();
-            SetLine(2);
-            SendLCD(CCPR2H, 1);
+            right=CCPR2L;
             PIR2bits.CCP2IF = 0;
         }
     }
@@ -51,8 +47,8 @@ void main(void) {
     PIE1bits.RCIE = 1; //enable EUSART receive interrupts.
 
     TRISCbits.RC1 = 1; //input on RC1
-    TRISCbits.RC2 = 1; //input on RC
-    TRISCbits.RC3 = 1;
+    TRISCbits.RC2 = 1; //input on RC2
+    TRISCbits.RC3 = 1; //input on RC3/INT0
     CCP1CONbits.CCP1M3 = 0;
     CCP1CONbits.CCP1M2 = 1;
     CCP1CONbits.CCP1M1 = 0;
@@ -63,15 +59,16 @@ void main(void) {
     CCP2CONbits.CCP2M1 = 0;
     CCP2CONbits.CCP2M0 = 1;
 
-    INTCONbits.INT0IE = 1;
-    INTCON2bits.INTEDG0 = 0;
+    INTCONbits.INT0IE = 1;//Enable external interrupts
+    INTCON2bits.INTEDG0 = 0;//Interrupt on falling edge 
 
     T1CONbits.TMR1ON = 1; //turn on timer1
     T1CONbits.RD16 = 1; // 16bit mode
     T1CONbits.TMR1CS = 0; //use internal clock
-    T1CONbits.T1OSCEN = 1; //The oscillator inverter and feedback resistor are turned off to eliminate power drain
+    T1CONbits.T1OSCEN = 0; //The oscillator inverter and feedback resistor are turned off to eliminate power drain
     T1CONbits.T1CKPS0 = 1; //1:8 prescaler
     T1CONbits.T1CKPS1 = 1; //1:8 prescaler
+    T1CONbits.T1RUN=1;
 
 
 
@@ -80,6 +77,12 @@ void main(void) {
     //    strcpy(buf, "Hello World!");
     //    LCD_String(buf); //output string to LCD
 
-    while (1) {
+    while (1) { 
+        if (left>right){
+            turnLeft(&motorL, &motorR); 
+        }
+        else {
+            turnRight(&motorL, &motorR);
+        }
     }
 }
