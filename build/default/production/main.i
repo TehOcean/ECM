@@ -5122,7 +5122,48 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 #pragma config OSC = IRCIO
 
+# 1 "./lcd.h" 1
 
+
+
+
+
+void E_TOG(void);
+void LCDout(unsigned char number);
+void SendLCD(unsigned char Byte, char type);
+void LCD_Init(void);
+void SetLine(char line);
+void LCD_String(char *string);
+void ClearLCD();
+# 4 "main.c" 2
+
+# 1 "./motor.h" 1
+
+
+
+
+
+volatile struct DC_motor motorL, motorR;
+volatile char TurningSpeed = 75;
+
+struct DC_motor {
+    char power;
+    char direction;
+    unsigned char *dutyLowByte;
+    unsigned char *dutyHighByte;
+    char dir_pin;
+    int PWMperiod;
+};
+
+void initMotor();
+void setMotorPWM(struct DC_motor *m);
+void stop(struct DC_motor *m_L, struct DC_motor *m_R);
+void turnLeft(struct DC_motor *m_L, struct DC_motor *m_R);
+void turnRight(struct DC_motor *m_L, struct DC_motor *m_R);
+void fullSpeedAhead(struct DC_motor *m_L, struct DC_motor *m_R);
+void setMotorFullSpeed(struct DC_motor *m);
+void delay_s(int seconds);
+# 5 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\string.h" 3
@@ -5329,13 +5370,76 @@ char *tempnam(const char *, const char *);
 void LEDout(int number);
 void LEDInit();
 # 8 "main.c" 2
-# 42 "main.c"
+
+
+
+volatile unsigned int right;
+volatile unsigned int left;
+# 21 "main.c"
+void __attribute__((picinterrupt(("low_priority")))) InterruptHandlerLow() {
+    if (INTCONbits.INT0IF == 1) {
+        TMR1 = 0;
+        LEDout(2);
+        INTCONbits.INT0IF = 0;
+
+
+
+        if (PIR1bits.CCP1IF == 1) {
+            left=CCPR1L + (CCPR1H << 8);
+            PIR1bits.CCP1IF = 0;
+            LEDout(CCPR1H);
+        }
+
+
+
+
+
+    }
+}
+
 void main(void) {
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
-# 66 "main.c"
+
+
+
+
+    INTCONbits.GIEH = 1;
+    INTCONbits.GIEL = 1;
+    RCONbits.IPEN = 1;
+    PIE1bits.RCIE = 1;
+
+    TRISCbits.RC1 = 1;
+    TRISCbits.RC2 = 1;
+    TRISCbits.RC3 = 1;
+    CCP1CONbits.CCP1M3 = 0;
+    CCP1CONbits.CCP1M2 = 1;
+    CCP1CONbits.CCP1M1 = 0;
+    CCP1CONbits.CCP1M0 = 1;
+
+    CCP2CONbits.CCP2M3 = 0;
+    CCP2CONbits.CCP2M2 = 1;
+    CCP2CONbits.CCP2M1 = 0;
+    CCP2CONbits.CCP2M0 = 1;
     LEDInit();
-# 85 "main.c"
+
+    INTCONbits.INT0IE = 1;
+    INTCON2bits.INTEDG0 = 0;
+
+    T1CONbits.TMR1ON = 1;
+    T1CONbits.RD16 = 1;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.T1OSCEN = 0;
+    T1CONbits.T1CKPS0 = 1;
+    T1CONbits.T1CKPS1 = 1;
+    T1CONbits.T1RUN=1;
+
+
+
+
+
+
+
 LEDout(84);
     while (1) {
 
