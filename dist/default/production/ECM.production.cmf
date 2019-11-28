@@ -24,12 +24,12 @@ text7 CODE 0 2B2 2B2 30 1
 text8 CODE 0 178 178 78 1
 text9 CODE 0 348 348 E 1
 idataCOMRAM CODE 0 356 356 1 1
-cstackCOMRAM COMRAM 1 23 23 1A 1
-temp COMRAM 1 3E 3E 1 1
+cstackCOMRAM COMRAM 1 23 23 1C 1
+temp COMRAM 1 40 40 1 1
 intcode CODE 0 8 8 36 1
-dataCOMRAM COMRAM 1 3D 3D 1 1
+dataCOMRAM COMRAM 1 3F 3F 1 1
 bssCOMRAM COMRAM 1 1 1 22 1
-$C:\Users\ossia\AppData\Local\Temp\scjo.o
+$C:\Users\ossia\AppData\Local\Temp\shf0.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 3E 3E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -51,8 +51,8 @@ STACK 60-2FF 1
 SMALLCONST 357-1FFF 1
 CODE 4-7 1
 CODE 357-1FFF 1
-BIGRAM 3F-2FF 1
-COMRAM 3F-5F 1
+BIGRAM 41-2FF 1
+COMRAM 41-5F 1
 EEDATA F00000-F000FF 1
 MEDIUMCONST 357-1FFF 1
 # %LINETAB Section
@@ -69,7 +69,7 @@ MEDIUMCONST 357-1FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\ECM.production.o
-8 intcode CODE >3235:C:\Users\ossia\AppData\Local\Temp\scjo.s
+8 intcode CODE >3235:C:\Users\ossia\AppData\Local\Temp\shf0.s
 8 intcode CODE >12:C:\Users\ossia\Documents\ECM\ECM\main.c
 12 intcode CODE >13:C:\Users\ossia\Documents\ECM\ECM\main.c
 20 intcode CODE >14:C:\Users\ossia\Documents\ECM\ECM\main.c
@@ -176,28 +176,28 @@ FE text0 CODE >22:C:\Users\ossia\Documents\ECM\ECM\main.c
 146 text0 CODE >37:C:\Users\ossia\Documents\ECM\ECM\main.c
 158 text0 CODE >40:C:\Users\ossia\Documents\ECM\ECM\main.c
 164 text0 CODE >41:C:\Users\ossia\Documents\ECM\ECM\main.c
-2E2 cinit CODE >1648:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E2 cinit CODE >1650:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E2 cinit CODE >1653:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E2 cinit CODE >1683:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E4 cinit CODE >1684:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E6 cinit CODE >1685:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2E8 cinit CODE >1686:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2EA cinit CODE >1687:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2EC cinit CODE >1688:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2EE cinit CODE >1689:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2F0 cinit CODE >1690:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2F4 cinit CODE >1694:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2F8 cinit CODE >1695:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2FA cinit CODE >1696:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2FA cinit CODE >1697:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2FC cinit CODE >1698:C:\Users\ossia\AppData\Local\Temp\scjo.s
-2FE cinit CODE >1699:C:\Users\ossia\AppData\Local\Temp\scjo.s
-300 cinit CODE >1705:C:\Users\ossia\AppData\Local\Temp\scjo.s
-300 cinit CODE >1707:C:\Users\ossia\AppData\Local\Temp\scjo.s
-302 cinit CODE >1708:C:\Users\ossia\AppData\Local\Temp\scjo.s
-304 cinit CODE >1709:C:\Users\ossia\AppData\Local\Temp\scjo.s
-306 cinit CODE >1710:C:\Users\ossia\AppData\Local\Temp\scjo.s
+2E2 cinit CODE >1648:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E2 cinit CODE >1650:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E2 cinit CODE >1653:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E2 cinit CODE >1683:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E4 cinit CODE >1684:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E6 cinit CODE >1685:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2E8 cinit CODE >1686:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2EA cinit CODE >1687:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2EC cinit CODE >1688:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2EE cinit CODE >1689:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2F0 cinit CODE >1690:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2F4 cinit CODE >1694:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2F8 cinit CODE >1695:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2FA cinit CODE >1696:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2FA cinit CODE >1697:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2FC cinit CODE >1698:C:\Users\ossia\AppData\Local\Temp\shf0.s
+2FE cinit CODE >1699:C:\Users\ossia\AppData\Local\Temp\shf0.s
+300 cinit CODE >1705:C:\Users\ossia\AppData\Local\Temp\shf0.s
+300 cinit CODE >1707:C:\Users\ossia\AppData\Local\Temp\shf0.s
+302 cinit CODE >1708:C:\Users\ossia\AppData\Local\Temp\shf0.s
+304 cinit CODE >1709:C:\Users\ossia\AppData\Local\Temp\shf0.s
+306 cinit CODE >1710:C:\Users\ossia\AppData\Local\Temp\shf0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -214,23 +214,23 @@ _A 1 0 COMRAM 1 bssCOMRAM dist/default/production\ECM.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\ECM.production.o
 LCD_String@string 29 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\ECM.production.o
-__Hspace_1 3F 0 ABS 0 - dist/default/production\ECM.production.o
+__Hspace_1 41 0 ABS 0 - dist/default/production\ECM.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\ECM.production.o
 _PWMCON0 F6F 0 ABS 0 - dist/default/production\ECM.production.o
 _PWMCON1 F6E 0 ABS 0 - dist/default/production\ECM.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\ECM.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ossia\AppData\Local\Temp\scjo.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ossia\AppData\Local\Temp\shf0.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ECM.production.o
 __end_of_LCDout 1F0 0 CODE 0 text8 dist/default/production\ECM.production.o
-main@i 3C 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
+main@i 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 delay_s@i 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 delay_s@j 30 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ECM.production.o
 _LATB F8A 0 ABS 0 - dist/default/production\ECM.production.o
-___sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\scjo.o
+___sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\shf0.o
 _main EC 0 CODE 0 text0 dist/default/production\ECM.production.o
-btemp 3E 0 COMRAM 1 temp dist/default/production\ECM.production.o
-start 3E 0 CODE 0 init C:\Users\ossia\AppData\Local\Temp\scjo.o
+btemp 40 0 COMRAM 1 temp dist/default/production\ECM.production.o
+start 3E 0 CODE 0 init C:\Users\ossia\AppData\Local\Temp\shf0.o
 _SendLCD 2B2 0 CODE 0 text7 dist/default/production\ECM.production.o
 _SetLine 27E 0 CODE 0 text4 dist/default/production\ECM.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\ECM.production.o
@@ -238,29 +238,29 @@ __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\ECM.production.o
 ?___wmul 25 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 _LCD_Init 42 0 CODE 0 text6 dist/default/production\ECM.production.o
 __Hpowerup 3E 0 CODE 0 powerup dist/default/production\ECM.production.o
-ttemp5 3F 0 COMRAM 1 temp dist/default/production\ECM.production.o
-ttemp6 42 0 COMRAM 1 temp dist/default/production\ECM.production.o
-ttemp7 46 0 COMRAM 1 temp dist/default/production\ECM.production.o
+ttemp5 41 0 COMRAM 1 temp dist/default/production\ECM.production.o
+ttemp6 44 0 COMRAM 1 temp dist/default/production\ECM.production.o
+ttemp7 48 0 COMRAM 1 temp dist/default/production\ECM.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\ECM.production.o
 __size_of_initSerial 0 0 ABS 0 - dist/default/production\ECM.production.o
-__accesstop 60 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\scjo.o
+__accesstop 60 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\shf0.o
 __end_of_LCD_Init EC 0 CODE 0 text6 dist/default/production\ECM.production.o
-intlevel0 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\scjo.o
-intlevel1 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\scjo.o
-intlevel2 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\scjo.o
-intlevel3 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\scjo.o
+intlevel0 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\shf0.o
+intlevel1 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\shf0.o
+intlevel2 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\shf0.o
+intlevel3 0 0 CODE 0 text C:\Users\ossia\AppData\Local\Temp\shf0.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\ECM.production.o
 _OSCCONbits FD3 0 ABS 0 - dist/default/production\ECM.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\ECM.production.o
-wtemp8 3F 0 COMRAM 1 temp dist/default/production\ECM.production.o
+wtemp8 41 0 COMRAM 1 temp dist/default/production\ECM.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\ECM.production.o
 SetLine@line 29 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\ECM.production.o
 __pidataCOMRAM 356 0 CODE 0 idataCOMRAM dist/default/production\ECM.production.o
 _delay_s 1F0 0 CODE 0 text2 dist/default/production\ECM.production.o
 ___wmul@multiplicand 27 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\scjo.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\scjo.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\shf0.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ossia\AppData\Local\Temp\shf0.o
 _LCD_String 242 0 CODE 0 text5 dist/default/production\ECM.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\ECM.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\ECM.production.o
@@ -314,7 +314,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\ECM.production.o
 _InterruptHandlerHigh 8 0 CODE 0 intcode dist/default/production\ECM.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\ECM.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\ECM.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ossia\AppData\Local\Temp\scjo.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ossia\AppData\Local\Temp\shf0.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\ECM.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\ECM.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\ECM.production.o
@@ -346,22 +346,22 @@ __Hdata 0 0 ABS 0 data dist/default/production\ECM.production.o
 __Hinit 42 0 CODE 0 init dist/default/production\ECM.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\ECM.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\ECM.production.o
-__Htemp 3F 0 COMRAM 1 temp dist/default/production\ECM.production.o
+__Htemp 41 0 COMRAM 1 temp dist/default/production\ECM.production.o
 __Htext 0 0 ABS 0 text dist/default/production\ECM.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\ECM.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\ECM.production.o
 __Linit 3E 0 CODE 0 init dist/default/production\ECM.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\ECM.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\ECM.production.o
-__Ltemp 3E 0 COMRAM 1 temp dist/default/production\ECM.production.o
+__Ltemp 40 0 COMRAM 1 temp dist/default/production\ECM.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\ECM.production.o
 ___wmul 30A 0 CODE 0 text3 dist/default/production\ECM.production.o
-int$flags 3E 0 COMRAM 1 temp dist/default/production\ECM.production.o
+int$flags 40 0 COMRAM 1 temp dist/default/production\ECM.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\ECM.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\ECM.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\ECM.production.o
 __S0 30000E 0 ABS 0 - dist/default/production\ECM.production.o
-__S1 3F 0 ABS 0 - dist/default/production\ECM.production.o
+__S1 41 0 ABS 0 - dist/default/production\ECM.production.o
 __S2 0 0 ABS 0 - dist/default/production\ECM.production.o
 __size_of_SendLCD 0 0 ABS 0 - dist/default/production\ECM.production.o
 __size_of_SetLine 0 0 ABS 0 - dist/default/production\ECM.production.o
@@ -393,10 +393,10 @@ _reader 10 0 COMRAM 1 bssCOMRAM dist/default/production\ECM.production.o
 __size_of_LCD_String 0 0 ABS 0 - dist/default/production\ECM.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\ECM.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\ECM.production.o
-stackhi 2FF 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\scjo.o
-stacklo 60 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\scjo.o
+stackhi 2FF 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\shf0.o
+stacklo 60 0 ABS 0 - C:\Users\ossia\AppData\Local\Temp\shf0.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\ECM.production.o
-_TurningSpeed 3D 0 COMRAM 1 dataCOMRAM dist/default/production\ECM.production.o
+_TurningSpeed 3F 0 COMRAM 1 dataCOMRAM dist/default/production\ECM.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\ECM.production.o
 _initSerial 330 0 CODE 0 text1 dist/default/production\ECM.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\ECM.production.o
@@ -427,7 +427,7 @@ __ptext7 2B2 0 CODE 0 text7 dist/default/production\ECM.production.o
 __ptext8 178 0 CODE 0 text8 dist/default/production\ECM.production.o
 __ptext9 348 0 CODE 0 text9 dist/default/production\ECM.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\ECM.production.o
-__ramtop 300 0 RAM 0 ramtop C:\Users\ossia\AppData\Local\Temp\scjo.o
+__ramtop 300 0 RAM 0 ramtop C:\Users\ossia\AppData\Local\Temp\shf0.o
 __Lpowerup 3E 0 CODE 0 powerup dist/default/production\ECM.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\ECM.production.o
 __end_of_delay_s 242 0 CODE 0 text2 dist/default/production\ECM.production.o
@@ -462,7 +462,7 @@ __Lram 0 0 ABS 0 ram dist/default/production\ECM.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\ECM.production.o
 __size_of_InterruptHandlerHigh 0 0 ABS 0 - dist/default/production\ECM.production.o
 __initialization 2E2 0 CODE 0 cinit dist/default/production\ECM.production.o
-__pdataCOMRAM 3D 0 COMRAM 1 dataCOMRAM dist/default/production\ECM.production.o
+__pdataCOMRAM 3F 0 COMRAM 1 dataCOMRAM dist/default/production\ECM.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\ECM.production.o
 ___wmul@product 29 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\ECM.production.o
@@ -500,7 +500,7 @@ SendLCD@type 27 0 COMRAM 1 cstackCOMRAM dist/default/production\ECM.production.o
 idloc 0 200000 200000 8 1
 reset_vec 0 0 0 4 1
 intcode 0 8 8 34F 1
-bssCOMRAM 1 1 1 3E 1
+bssCOMRAM 1 1 1 40 1
 config 0 300000 300000 E 1
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section

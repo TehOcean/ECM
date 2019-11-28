@@ -1,6 +1,6 @@
 _A 1 0 COMRAM 1
 __S0 30000E 0 ABS 0
-__S1 3F 0 ABS 0
+__S1 41 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
@@ -13,7 +13,7 @@ _LATB F8A 0 ABS 0
 __end_of_LCD_Init EC 0 CODE 0
 _main EC 0 CODE 0
 ___sp 0 0 STACK 2
-btemp 3E 0 COMRAM 1
+btemp 40 0 COMRAM 1
 start 3E 0 CODE 0
 _PDC0H F78 0 ABS 0
 _PDC1H F76 0 ABS 0
@@ -27,14 +27,14 @@ __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
 _E_TOG 348 0 CODE 0
-ttemp5 3F 0 COMRAM 1
-ttemp6 42 0 COMRAM 1
-ttemp7 46 0 COMRAM 1
-wtemp8 3F 0 COMRAM 1
+ttemp5 41 0 COMRAM 1
+ttemp6 44 0 COMRAM 1
+ttemp7 48 0 COMRAM 1
+wtemp8 41 0 COMRAM 1
 __size_of_SetLine 0 0 ABS 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-main@i 3C 0 COMRAM 1
+main@i 3E 0 COMRAM 1
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 COMRAM 1
@@ -50,7 +50,7 @@ __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
-int$flags 3E 0 COMRAM 1
+int$flags 40 0 COMRAM 1
 _LCD_Init 42 0 CODE 0
 __size_of_SendLCD 0 0 ABS 0
 _PTCON0 F7F 0 ABS 0
@@ -102,8 +102,8 @@ __Ldata 0 0 ABS 0
 stackhi 2FF 0 ABS 0
 _reader 10 0 COMRAM 1
 delay_s@seconds 2B 0 COMRAM 1
-__Htemp 3F 0 COMRAM 1
-__Ltemp 3E 0 COMRAM 1
+__Htemp 41 0 COMRAM 1
+__Ltemp 40 0 COMRAM 1
 stacklo 60 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
@@ -120,7 +120,7 @@ __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___wmul@multiplier 25 0 COMRAM 1
 end_of_initialization 300 0 CODE 0
-_TurningSpeed 3D 0 COMRAM 1
+_TurningSpeed 3F 0 COMRAM 1
 ___wmul@multiplicand 27 0 COMRAM 1
 _PWMCON0 F6F 0 ABS 0
 _PWMCON1 F6E 0 ABS 0
@@ -205,7 +205,7 @@ __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __size_of_InterruptHandlerHigh 0 0 ABS 0
 __pcstackCOMRAM 23 0 COMRAM 1
-__Hspace_1 3F 0 ABS 0
+__Hspace_1 41 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
 __Lsmallconst 0 0 SMALLCONST 0
@@ -252,7 +252,7 @@ SendLCD@Byte 28 0 COMRAM 1
 SetLine@line 29 0 COMRAM 1
 __HdataCOMRAM 0 0 ABS 0
 __LdataCOMRAM 0 0 ABS 0
-__pdataCOMRAM 3D 0 COMRAM 1
+__pdataCOMRAM 3F 0 COMRAM 1
 __end_of___wmul 330 0 CODE 0
 start_initialization 2E2 0 CODE 0
 __end_of_delay_s 242 0 CODE 0
@@ -266,11 +266,11 @@ reset_vec 0 3 CODE 0 0
 intcode 8 356 CODE 8 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
-bssCOMRAM 1 3E COMRAM 1 1
+bssCOMRAM 1 40 COMRAM 1 1
 %locals
 dist/default/production\ECM.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
-C:\Users\ossia\AppData\Local\Temp\scjo.s
+C:\Users\ossia\AppData\Local\Temp\shf0.s
 1648 2E2 0 CODE 0
 1650 2E2 0 CODE 0
 1653 2E2 0 CODE 0
@@ -404,7 +404,7 @@ lcd.c
 9 34A 0 CODE 0
 10 352 0 CODE 0
 11 354 0 CODE 0
-C:\Users\ossia\AppData\Local\Temp\scjo.s
+C:\Users\ossia\AppData\Local\Temp\shf0.s
 3235 8 0 CODE 0
 main.c
 12 8 0 CODE 0

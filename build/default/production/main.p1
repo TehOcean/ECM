@@ -773,8 +773,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 30:     char i;
 [v _i `uc ~T0 @X0 1 a ]
 "31
-[; ;main.c: 31:     char buf[10];
-[v _buf `uc ~T0 @X0 -> 10 `i a ]
+[; ;main.c: 31:     char buf[12];
+[v _buf `uc ~T0 @X0 -> 12 `i a ]
 "33
 [; ;main.c: 33:     while (1) {
 [e :U 327 ]
@@ -784,10 +784,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _reader `i -> 15 `i 329  ]
 {
 "35
-[; ;main.c: 35:             for (i = 0; i<10; i++) {
+[; ;main.c: 35:             for (i = 0; i<12; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 330  ]
+[e $ < -> _i `i -> 12 `i 330  ]
 [e $U 331  ]
 [e :U 330 ]
 {
@@ -798,7 +798,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 37:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 330  ]
+[e $ < -> _i `i -> 12 `i 330  ]
 [e :U 331 ]
 }
 "39
