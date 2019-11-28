@@ -19,7 +19,7 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
 void main(void) {
     OSCCON = 0x72; //8MHz clock
     while (!OSCCONbits.IOFS); //wait until stable
-    initSerial(); //Initialize the LCD   
+    initSerial(); //Initialize the Serial   
     LCD_Init(); //Initialize the LCD
     SetLine(1); //Set Line 1
     INTCONbits.GIEH = 1; // enable high priority interrupts
@@ -28,11 +28,11 @@ void main(void) {
     PIE1bits.RCIE = 1; //enable EUSART receive interrupts.
 
     char i;
-    char buf[12];
+    char buf[10];
     
     while (1) {
         if (reader == 15) {
-            for (i = 0; i<12; i++) {
+            for (i = 0; i<10; i++) {
                 buf[i] = A[i + 1];
             }
             //sprintf(buf, "%.10s", A[1]);

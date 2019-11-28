@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Thu Nov 28 11:15:10 2019
+                                                                                               Thu Nov 28 11:35:41 2019
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4331
@@ -129,7 +129,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    115  0002EA  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
    116  0002EC  6EF8               	movwf	tblptru,c
    117  0002EE  0009               	tblrd		*+	;fetch initializer
-   118  0002F0  CFF5 F03F          	movff	tablat,__pdataCOMRAM
+   118  0002F0  CFF5 F03D          	movff	tablat,__pdataCOMRAM
    119                           
    120                           ; Clear objects allocated to COMRAM (34 bytes)
    121  0002F4  EE00  F001         	lfsr	0,__pbssCOMRAM
@@ -142,8 +142,8 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    128                           	opt callstack 0
    129  000300                     __end_of__initialization:
    130                           	opt callstack 0
-   131  000300  9040               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-   132  000302  9240               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   131  000300  903E               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   132  000302  923E               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
    133  000304  0100               	movlb	0
    134  000306  EF76  F000         	goto	_main	;jump to C main() function
    135                           
@@ -164,11 +164,11 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    150  00001A                     	ds	9
    151                           
    152                           	psect	dataCOMRAM
-   153  00003F                     __pdataCOMRAM:
+   153  00003D                     __pdataCOMRAM:
    154                           	opt callstack 0
-   155  00003F                     _TurningSpeed:
+   155  00003D                     _TurningSpeed:
    156                           	opt callstack 0
-   157  00003F                     	ds	1
+   157  00003D                     	ds	1
    158                           
    159                           	psect	cstackCOMRAM
    160  000023                     __pcstackCOMRAM:
@@ -234,13 +234,13 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    220  000032                     main@buf:
    221                           	opt callstack 0
    222                           
-   223                           ; 12 bytes @ 0xF
-   224  000032                     	ds	12
-   225  00003E                     main@i:
+   223                           ; 10 bytes @ 0xF
+   224  000032                     	ds	10
+   225  00003C                     main@i:
    226                           	opt callstack 0
    227                           
-   228                           ; 1 bytes @ 0x1B
-   229  00003E                     	ds	1
+   228                           ; 1 bytes @ 0x19
+   229  00003C                     	ds	1
    230                           
    231 ;;
    232 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
@@ -251,8 +251,8 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    237 ;; Parameters:    Size  Location     Type
    238 ;;		None
    239 ;; Auto vars:     Size  Location     Type
-   240 ;;  buf            12   15[COMRAM] unsigned char [12]
-   241 ;;  i               1   27[COMRAM] unsigned char 
+   240 ;;  buf            10   15[COMRAM] unsigned char [10]
+   241 ;;  i               1   25[COMRAM] unsigned char 
    242 ;; Return value:  Size  Location     Type
    243 ;;                  1    wreg      void 
    244 ;; Registers used:
@@ -263,10 +263,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    249 ;;		Unchanged: 0/0
    250 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
    251 ;;      Params:         0       0       0       0
-   252 ;;      Locals:        13       0       0       0
+   252 ;;      Locals:        11       0       0       0
    253 ;;      Temps:          0       0       0       0
-   254 ;;      Totals:        13       0       0       0
-   255 ;;Total ram usage:       13 bytes
+   254 ;;      Totals:        11       0       0       0
+   255 ;;Total ram usage:       11 bytes
    256 ;; Hardware stack levels required when called:    5
    257 ;; This function calls:
    258 ;;		_LCD_Init
@@ -329,20 +329,20 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    315  000122  EF8A  F000         	goto	l1261
    316  000126                     u270:
    317  000126                     
-   318                           ;main.c: 35:             for (i = 0; i<12; i++) {
+   318                           ;main.c: 35:             for (i = 0; i<10; i++) {
    319  000126  0E00               	movlw	0
-   320  000128  6E3E               	movwf	main@i^0,c
+   320  000128  6E3C               	movwf	main@i^0,c
    321  00012A                     l1269:
    322                           
    323                           ;main.c: 36:                 buf[i] = A[i + 1];
    324  00012A  0E02               	movlw	low (_A+1)
-   325  00012C  243E               	addwf	main@i^0,w,c
+   325  00012C  243C               	addwf	main@i^0,w,c
    326  00012E  6ED9               	movwf	fsr2l,c
    327  000130  6ADA               	clrf	fsr2h,c
    328  000132  0E00               	movlw	high (_A+1)
    329  000134  22DA               	addwfc	fsr2h,f,c
    330  000136  0E32               	movlw	low main@buf
-   331  000138  243E               	addwf	main@i^0,w,c
+   331  000138  243C               	addwf	main@i^0,w,c
    332  00013A  6EE1               	movwf	fsr1l,c
    333  00013C  6AE2               	clrf	fsr1h,c
    334  00013E  0E00               	movlw	high main@buf
@@ -350,9 +350,9 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    336  000142  CFDF FFE7          	movff	indf2,indf1
    337  000146                     
    338                           ;main.c: 37:             }
-   339  000146  2A3E               	incf	main@i^0,f,c
-   340  000148  0E0B               	movlw	11
-   341  00014A  643E               	cpfsgt	main@i^0,c
+   339  000146  2A3C               	incf	main@i^0,f,c
+   340  000148  0E09               	movlw	9
+   341  00014A  643C               	cpfsgt	main@i^0,c
    342  00014C  EFAA  F000         	goto	u281
    343  000150  EFAC  F000         	goto	u280
    344  000154                     u281:
@@ -665,7 +665,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    651 ;;		line 94 in file "lcd.c"
    652 ;; Parameters:    Size  Location     Type
    653 ;;  string          2    6[COMRAM] PTR unsigned char 
-   654 ;;		 -> main@buf(12), 
+   654 ;;		 -> main@buf(10), 
    655 ;; Auto vars:     Size  Location     Type
    656 ;;		None
    657 ;; Return value:  Size  Location     Type
@@ -1187,7 +1187,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1173                           	opt callstack 26
   1174                           
   1175                           ;incstack = 0
-  1176  000008  8240               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+  1176  000008  823E               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
   1177  00000A  CFD9 F023          	movff	fsr2l,??_InterruptHandlerHigh
   1178  00000E  CFDA F024          	movff	fsr2h,??_InterruptHandlerHigh+1
   1179  000012                     
@@ -1213,7 +1213,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1199  000032                     i2l191:
   1200  000032  C024  FFDA         	movff	??_InterruptHandlerHigh+1,fsr2h
   1201  000036  C023  FFD9         	movff	??_InterruptHandlerHigh,fsr2l
-  1202  00003A  9240               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1202  00003A  923E               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
   1203  00003C  0011               	retfie		f
   1204  00003E                     __end_of_InterruptHandlerHigh:
   1205                           	opt callstack 0
@@ -1221,9 +1221,9 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1207                           	psect	rparam
   1208  0000                     
   1209                           	psect	temp
-  1210  000040                     btemp:
+  1210  00003E                     btemp:
   1211                           	opt callstack 0
-  1212  000040                     	ds	1
+  1212  00003E                     	ds	1
   1213  0000                     int$flags	set	btemp
   1214  0000                     wtemp8	set	btemp+1
   1215  0000                     ttemp5	set	btemp+1
@@ -1278,7 +1278,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           94     28      63
+    COMRAM           94     26      61
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1315,8 +1315,8 @@ Pointer List with Targets:
     motorL.dutyLowByte	PTR unsigned char  size(2) Largest target is 1
 		 -> PDC1L(SFR[1]), PDC0L(SFR[1]), 
 
-    LCD_String@string	PTR unsigned char  size(2) Largest target is 12
-		 -> main@buf(COMRAM[12]), 
+    LCD_String@string	PTR unsigned char  size(2) Largest target is 10
+		 -> main@buf(COMRAM[10]), 
 
 
 Critical Paths under _main in COMRAM
@@ -1361,8 +1361,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                13    13      0    3423
-                                             15 COMRAM    13    13      0
+ (0) _main                                                11    11      0    3423
+                                             15 COMRAM    11    11      0
                            _LCD_Init
                          _LCD_String
                             _SetLine
@@ -1445,18 +1445,18 @@ BANK1              100      0       0       7        0.0%
 BITBANK0            A0      0       0       4        0.0%
 BANK0               A0      0       0       5        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
-COMRAM              5E     1C      3F       1       67.0%
+COMRAM              5E     1A      3D       1       64.9%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      3F       3        0.0%
-DATA                 0      0      3F      11        0.0%
+ABS                  0      0      3D       3        0.0%
+DATA                 0      0      3D      11        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Thu Nov 28 11:15:10 2019
+Symbol Table                                                                                   Thu Nov 28 11:35:41 2019
 
                             _A 0001                             l20 01EE                             l23 02E0  
                            l31 02B0                             l17 0354                             l26 00EA  
@@ -1493,17 +1493,17 @@ Symbol Table                                                                    
                          l1197 0218                           l1277 0164                           l1269 012A  
                          l1199 0226                           _LATB 000F8A                           _main 00EC  
                          fsr2h 000FDA                           indf1 000FE7                           indf2 000FDF  
-                         fsr1l 000FE1                           fsr2l 000FD9                           btemp 0040  
+                         fsr1l 000FE1                           fsr2l 000FD9                           btemp 003E  
                          prodh 000FF4                           prodl 000FF3                           start 003E  
                delay_s@seconds 002B                   ___param_bank 000000                __end_of_SendLCD 02E2  
               __end_of_SetLine 02B2               __end_of_LCD_Init 00EC                          ?_main 0023  
                         _PDC0H 000F78                          _PDC1H 000F76                          _PDC0L 000F79  
                         _PDC1L 000F77                          i2l191 0032                          _RCREG 000FAE  
                         _E_TOG 0348                          _SPBRG 000FAF                          _TXREG 000FAD  
-              __end_of_delay_s 0242                          main@i 003E                          tablat 000FF5  
-                        ttemp5 0041                          ttemp6 0044                          ttemp7 0048  
-                        status 000FD8                          wtemp8 0041            __size_of_LCD_String 003C  
-                 _TurningSpeed 003F                __initialization 02E2                   __end_of_main 0178  
+              __end_of_delay_s 0242                          main@i 003C                          tablat 000FF5  
+                        ttemp5 003F                          ttemp6 0042                          ttemp7 0046  
+                        status 000FD8                          wtemp8 003F            __size_of_LCD_String 003C  
+                 _TurningSpeed 003D                __initialization 02E2                   __end_of_main 0178  
                __CFG_OSC$IRCIO 000000               LCD_String@string 0029                         ??_main 0032  
                 __activetblptr 000000                         ?_E_TOG 0023                         i2l1081 0012  
                        i2l1083 0020                         i2l1085 0030                         _LCDout 0178  
@@ -1512,7 +1512,7 @@ Symbol Table                                                                    
                        _PTPERL 000F7B                    SendLCD@type 0027                      ??_SendLCD 0028  
                     ??_SetLine 0029                         ___wmul 030A                         _reader 0010  
                        clear_0 02FA                      ??_delay_s 002D                         _motorL 001A  
-                       _motorR 0011                   __pdataCOMRAM 003F                         tblptrh 000FF7  
+                       _motorR 0011                   __pdataCOMRAM 003D                         tblptrh 000FF7  
                        tblptrl 000FF6                         tblptru 000FF8                     __accesstop 0060  
       __end_of__initialization 0300                      ?_LCD_Init 0023                  ___rparam_used 000001  
                   SetLine@line 0029                  __end_of_E_TOG 0356                 __pcstackCOMRAM 0023  
@@ -1542,6 +1542,6 @@ Symbol Table                                                                    
                      __Hrparam 0000               __size_of_SendLCD 0030                       __Lrparam 0000  
              __size_of_SetLine 0034                   ??_initSerial 0025               __size_of_delay_s 0052  
         ?_InterruptHandlerHigh 0023             __end_of_initSerial 0348                  __size_of_main 008C  
-                     delay_s@i 002E                       delay_s@j 0030                       int$flags 0040  
+                     delay_s@i 002E                       delay_s@j 0030                       int$flags 003E  
                    _LCD_String 0242                     _INTCONbits 000FF2                       intlevel2 0000  
                    _OSCCONbits 000FD3         ??_InterruptHandlerHigh 0023  

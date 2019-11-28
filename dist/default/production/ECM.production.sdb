@@ -460,9 +460,9 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "31
-[v main@buf buf `[12]uc  1 a 12 15 ]
+[v main@buf buf `[10]uc  1 a 10 15 ]
 "30
-[v main@i i `uc  1 a 1 27 ]
+[v main@i i `uc  1 a 1 25 ]
 "44
 } 0
 "26 C:\Users\ossia\Documents\ECM\ECM\serial.c

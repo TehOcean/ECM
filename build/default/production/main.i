@@ -5397,11 +5397,11 @@ void main(void) {
     PIE1bits.RCIE = 1;
 
     char i;
-    char buf[12];
+    char buf[10];
 
     while (1) {
         if (reader == 15) {
-            for (i = 0; i<12; i++) {
+            for (i = 0; i<10; i++) {
                 buf[i] = A[i + 1];
             }
 
