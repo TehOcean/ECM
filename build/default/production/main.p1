@@ -686,7 +686,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "3 main.c
-[p x OSC = IRCIO ]
+[p x OSC = IRCIO  MCLRE=OFF  LVP = OFF ]
 "6 ./motor.h
 [; ;./motor.h: 6: volatile struct DC_motor motorL, motorR;
 [v _motorL `VS315 ~T0 @X0 1 e ]
@@ -698,11 +698,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 75 `i `uc
 ]
 "9 main.c
-[; ;main.c: 9: volatile char reader = 0;
+[; ;main.c: 9: volatile char reader;
 [v _reader `Vuc ~T0 @X0 1 e ]
-[i _reader
--> -> 0 `i `uc
-]
 "10
 [; ;main.c: 10: volatile char A[15];
 [v _A `Vuc ~T0 @X0 -> 15 `i e ]
@@ -757,9 +754,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "24
 [; ;main.c: 24:     SetLine(1);
 [e ( _SetLine (1 -> -> 1 `i `uc ]
-"25
-[; ;main.c: 25:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "26
 [; ;main.c: 26:     INTCONbits.GIEL = 1;
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
@@ -769,58 +763,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28
 [; ;main.c: 28:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"30
-[; ;main.c: 30:     char i;
-[v _i `uc ~T0 @X0 1 a ]
+"29
+[; ;main.c: 29:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "31
-[; ;main.c: 31:     char buf[10];
-[v _buf `uc ~T0 @X0 -> 10 `i a ]
+[; ;main.c: 31:     char i;
+[v _i `uc ~T0 @X0 1 a ]
+"32
+[; ;main.c: 32:     char buf[11];
+[v _buf `uc ~T0 @X0 -> 11 `i a ]
 "33
-[; ;main.c: 33:     while (1) {
+[; ;main.c: 33:     reader=0;
+[e = _reader -> -> 0 `i `uc ]
+"35
+[; ;main.c: 35:     while (1) {
 [e :U 327 ]
 {
-"34
-[; ;main.c: 34:         if (reader == 15) {
+"36
+[; ;main.c: 36:         if (reader == 15) {
 [e $ ! == -> _reader `i -> 15 `i 329  ]
 {
-"35
-[; ;main.c: 35:             for (i = 0; i<10; i++) {
+"37
+[; ;main.c: 37:             for (i = 0; i<10; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 10 `i 330  ]
 [e $U 331  ]
 [e :U 330 ]
 {
-"36
-[; ;main.c: 36:                 buf[i] = A[i + 1];
+"38
+[; ;main.c: 38:                 buf[i] = A[i + 1];
 [e = *U + &U _buf * -> _i `ux -> -> # *U &U _buf `ui `ux *U + &U _A * -> -> + -> _i `i -> 1 `i `ui `ux -> -> # *U &U _A `ui `ux ]
-"37
-[; ;main.c: 37:             }
+"39
+[; ;main.c: 39:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 10 `i 330  ]
 [e :U 331 ]
 }
-"39
-[; ;main.c: 39:             ClearLCD;
-[e &U _ClearLCD ]
 "40
-[; ;main.c: 40:             LCD_String(buf);
-[e ( _LCD_String (1 &U _buf ]
-"41
-[; ;main.c: 41:             delay_s(1);
-[e ( _delay_s (1 -> 1 `i ]
+[; ;main.c: 40:             buf[10]=0;
+[e = *U + &U _buf * -> -> -> 10 `i `ui `ux -> -> # *U &U _buf `ui `ux -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:         }
+[; ;main.c: 42:             ClearLCD();
+[e ( _ClearLCD ..  ]
+"43
+[; ;main.c: 43:             LCD_String(buf);
+[e ( _LCD_String (1 &U _buf ]
+"44
+[; ;main.c: 44:             SetLine(2);
+[e ( _SetLine (1 -> -> 2 `i `uc ]
+"46
+[; ;main.c: 46:             LCD_String(A);
+[e ( _LCD_String (1 -> &U _A `*uc ]
+"47
+[; ;main.c: 47:             delay_s(1);
+[e ( _delay_s (1 -> 1 `i ]
+"48
+[; ;main.c: 48:             reader=0;
+[e = _reader -> -> 0 `i `uc ]
+"49
+[; ;main.c: 49:         }
 }
 [e :U 329 ]
-"43
-[; ;main.c: 43:     }
+"50
+[; ;main.c: 50:     }
 }
 [e :U 326 ]
 [e $U 327  ]
 [e :U 328 ]
-"44
-[; ;main.c: 44: }
+"51
+[; ;main.c: 51: }
 [e :UE 322 ]
 }

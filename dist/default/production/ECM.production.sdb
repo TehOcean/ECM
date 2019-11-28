@@ -43,6 +43,8 @@
 [v _SetLine SetLine `(v  1 e 1 0 ]
 "94
 [v _LCD_String LCD_String `(v  1 e 1 0 ]
+"106
+[v _ClearLCD ClearLCD `(v  1 e 1 0 ]
 "12 C:\Users\ossia\Documents\ECM\ECM\main.c
 [v _InterruptHandlerHigh InterruptHandlerHigh `IIH(v  1 e 1 0 ]
 "19
@@ -459,11 +461,11 @@
 "19
 [v _main main `(v  1 e 1 0 ]
 {
+"32
+[v main@buf buf `[11]uc  1 a 11 15 ]
 "31
-[v main@buf buf `[10]uc  1 a 10 15 ]
-"30
-[v main@i i `uc  1 a 1 25 ]
-"44
+[v main@i i `uc  1 a 1 26 ]
+"51
 } 0
 "26 C:\Users\ossia\Documents\ECM\ECM\serial.c
 [v _initSerial initSerial `(v  1 e 1 0 ]
@@ -509,6 +511,11 @@
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 {
 "82
+} 0
+"106
+[v _ClearLCD ClearLCD `(v  1 e 1 0 ]
+{
+"109
 } 0
 "26
 [v _SendLCD SendLCD `(v  1 e 1 0 ]

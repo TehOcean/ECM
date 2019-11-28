@@ -5120,7 +5120,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 1 "main.c" 2
 
 
-#pragma config OSC = IRCIO
+#pragma config OSC = IRCIO, MCLRE=OFF, LVP = OFF
 
 # 1 "./lcd.h" 1
 
@@ -5375,7 +5375,7 @@ void sendCharSerial(char charToSend);
 char getCharSerial(void);
 # 8 "main.c" 2
 
-volatile char reader = 0;
+volatile char reader;
 volatile char A[15];
 
 void __attribute__((picinterrupt(("high_priority")))) InterruptHandlerHigh() {
@@ -5391,23 +5391,30 @@ void main(void) {
     initSerial();
     LCD_Init();
     SetLine(1);
-    INTCONbits.GIEH = 1;
+
     INTCONbits.GIEL = 1;
     RCONbits.IPEN = 1;
     PIE1bits.RCIE = 1;
+    INTCONbits.GIEH = 1;
 
     char i;
-    char buf[10];
+    char buf[11];
+    reader=0;
 
     while (1) {
         if (reader == 15) {
             for (i = 0; i<10; i++) {
                 buf[i] = A[i + 1];
             }
+            buf[10]=0;
 
-            ClearLCD;
+            ClearLCD();
             LCD_String(buf);
+            SetLine(2);
+
+            LCD_String(A);
             delay_s(1);
+            reader=0;
         }
     }
 }
