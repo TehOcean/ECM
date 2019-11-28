@@ -5375,71 +5375,17 @@ void LEDInit();
 
 volatile unsigned int right;
 volatile unsigned int left;
-# 21 "main.c"
-void __attribute__((picinterrupt(("low_priority")))) InterruptHandlerLow() {
-    if (INTCONbits.INT0IF == 1) {
-        TMR1 = 0;
-        LEDout(2);
-        INTCONbits.INT0IF = 0;
-
-
-
-        if (PIR1bits.CCP1IF == 1) {
-            left=CCPR1L + (CCPR1H << 8);
-            PIR1bits.CCP1IF = 0;
-            LEDout(CCPR1H);
-        }
-
-
-
-
-
-    }
-}
-
+# 42 "main.c"
 void main(void) {
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
 
-
-
-
-    INTCONbits.GIEH = 1;
-    INTCONbits.GIEL = 1;
-    RCONbits.IPEN = 1;
-    PIE1bits.RCIE = 1;
-
-    TRISCbits.RC1 = 1;
-    TRISCbits.RC2 = 1;
-    TRISCbits.RC3 = 1;
-    CCP1CONbits.CCP1M3 = 0;
-    CCP1CONbits.CCP1M2 = 1;
-    CCP1CONbits.CCP1M1 = 0;
-    CCP1CONbits.CCP1M0 = 1;
-
-    CCP2CONbits.CCP2M3 = 0;
-    CCP2CONbits.CCP2M2 = 1;
-    CCP2CONbits.CCP2M1 = 0;
-    CCP2CONbits.CCP2M0 = 1;
-    LEDInit();
-
-    INTCONbits.INT0IE = 1;
-    INTCON2bits.INTEDG0 = 0;
-
-    T1CONbits.TMR1ON = 1;
-    T1CONbits.RD16 = 1;
-    T1CONbits.TMR1CS = 0;
-    T1CONbits.T1OSCEN = 0;
-    T1CONbits.T1CKPS0 = 1;
-    T1CONbits.T1CKPS1 = 1;
-    T1CONbits.T1RUN=1;
-
-
-
-
-
-
-
+    LCD_Init();
+    SetLine(1);
+# 82 "main.c"
+        char buf[10];
+        strcpy(buf, "Hello World!");
+        LCD_String(buf);
 LEDout(84);
     while (1) {
 
