@@ -24,17 +24,19 @@ void __interrupt(low_priority) InterruptHandlerLow() {
         LEDout(2);
         INTCONbits.INT0IF = 0;
 
-
-
         if (PIR1bits.CCP1IF == 1) {
             left = CCPR1L + (CCPR1H << 8);
             PIR1bits.CCP1IF = 0;
             LEDout(CCPR1H);
+            SetLine(1);
+            SendLCD(CCPR1L,1);
         }
         if (PIR2bits.CCP2IF == 1) {
             right = CCPR2L + (CCPR2H << 8);
             PIR2bits.CCP2IF = 0;
             LEDout(CCPR2H);
+            SetLine(2);
+            SendLCD(CCPR2L,1);
         }
     }
 }
@@ -43,8 +45,8 @@ void main(void) {
     OSCCON = 0x72; //8MHz clock
     while (!OSCCONbits.IOFS); //wait until stable
     //initSerial(); //Initialize the Serial port   
-    //LCD_Init(); //Initialize the LCD
-    //SetLine(1); //Set Line 1
+    LCD_Init(); //Initialize the LCD
+    SetLine(1); //Set Line 1
     initMotor();
 
     INTCONbits.GIEH = 1; // enable high priority interrupts
@@ -85,11 +87,15 @@ void main(void) {
     //        LCD_String(buf); //output string to LCD
     //LEDout(84);
     while (1) {
-                if (left>right){
+                if ((left - right) < 100){
                     turnLeft(&motorL, &motorR); 
                 }
-                else {
+                
+                if ((left - right) > 100) {
                     turnRight(&motorL, &motorR);
+                }
+                else {
+                    fullSpeedAhead(&motorL, &motorR);
                 }
 
     }

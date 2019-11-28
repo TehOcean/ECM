@@ -615,10 +615,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `VS315 ~T0 @X0 1 e ]
 [v _motorR `VS315 ~T0 @X0 1 e ]
 "7
-[; ;./motor.h: 7: volatile char TurningSpeed = 75;
+[; ;./motor.h: 7: volatile char TurningSpeed = 40;
 [v _TurningSpeed `Vuc ~T0 @X0 1 e ]
 [i _TurningSpeed
--> -> 75 `i `uc
+-> -> 40 `i `uc
 ]
 "4 motor.c
 [; ;motor.c: 4: void initMotor() {
@@ -886,11 +886,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;motor.c: 92:     motorL.direction = 1;
 [e = . _motorL 1 -> -> 1 `i `uc ]
 "93
-[; ;motor.c: 93:     motorL.power = 100;
-[e = . _motorL 0 -> -> 100 `i `uc ]
+[; ;motor.c: 93:     motorL.power = TurningSpeed;
+[e = . _motorL 0 _TurningSpeed ]
 "94
-[; ;motor.c: 94:     motorR.power = 100;
-[e = . _motorR 0 -> -> 100 `i `uc ]
+[; ;motor.c: 94:     motorR.power = TurningSpeed;
+[e = . _motorR 0 _TurningSpeed ]
 "95
 [; ;motor.c: 95:     setMotorPWM(&motorR);
 [e ( _setMotorPWM (1 -> &U _motorR `*S315 ]

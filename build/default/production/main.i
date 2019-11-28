@@ -5144,7 +5144,7 @@ void ClearLCD();
 
 
 volatile struct DC_motor motorL, motorR;
-volatile char TurningSpeed = 75;
+volatile char TurningSpeed = 40;
 
 struct DC_motor {
     char power;
@@ -5382,17 +5382,19 @@ void __attribute__((picinterrupt(("low_priority")))) InterruptHandlerLow() {
         LEDout(2);
         INTCONbits.INT0IF = 0;
 
-
-
         if (PIR1bits.CCP1IF == 1) {
             left = CCPR1L + (CCPR1H << 8);
             PIR1bits.CCP1IF = 0;
             LEDout(CCPR1H);
+            SetLine(1);
+            SendLCD(CCPR1L,1);
         }
         if (PIR2bits.CCP2IF == 1) {
             right = CCPR2L + (CCPR2H << 8);
             PIR2bits.CCP2IF = 0;
             LEDout(CCPR2H);
+            SetLine(2);
+            SendLCD(CCPR2L,1);
         }
     }
 }
@@ -5401,8 +5403,8 @@ void main(void) {
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
 
-
-
+    LCD_Init();
+    SetLine(1);
     initMotor();
 
     INTCONbits.GIEH = 1;
@@ -5434,13 +5436,17 @@ void main(void) {
     T1CONbits.T1CKPS0 = 1;
     T1CONbits.T1CKPS1 = 1;
     T1CONbits.T1RUN = 1;
-# 87 "main.c"
+# 89 "main.c"
     while (1) {
-                if (left>right){
+                if ((left - right) < 100){
                     turnLeft(&motorL, &motorR);
                 }
-                else {
+
+                if ((left - right) > 100) {
                     turnRight(&motorL, &motorR);
+                }
+                else {
+                    fullSpeedAhead(&motorL, &motorR);
                 }
 
     }

@@ -90,8 +90,8 @@ void turnRight(struct DC_motor *m_L, struct DC_motor *m_R) {
 void fullSpeedAhead(struct DC_motor *m_L, struct DC_motor *m_R) {
     motorR.direction = 1;
     motorL.direction = 1;
-    motorL.power = 100;
-    motorR.power = 100;
+    motorL.power = TurningSpeed;
+    motorR.power = TurningSpeed;
     setMotorPWM(&motorR);
     setMotorPWM(&motorL);
 
