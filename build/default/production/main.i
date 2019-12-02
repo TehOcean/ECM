@@ -5144,7 +5144,7 @@ void ClearLCD();
 
 
 volatile struct DC_motor motorL, motorR;
-volatile char TurningSpeed = 8;
+volatile char TurningSpeed = 60;
 
 struct DC_motor {
     char power;
@@ -5403,8 +5403,8 @@ void main(void) {
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
 
-    LCD_Init();
-    SetLine(1);
+
+
     initMotor();
 
     INTCONbits.GIEH = 1;
@@ -5424,7 +5424,7 @@ void main(void) {
     CCP2CONbits.CCP2M2 = 1;
     CCP2CONbits.CCP2M1 = 0;
     CCP2CONbits.CCP2M0 = 1;
-    LEDInit();
+
 
     INTCONbits.INT0IE = 1;
     INTCON2bits.INTEDG0 = 0;

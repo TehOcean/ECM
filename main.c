@@ -45,8 +45,8 @@ void main(void) {
     OSCCON = 0x72; //8MHz clock
     while (!OSCCONbits.IOFS); //wait until stable
     //initSerial(); //Initialize the Serial port   
-    LCD_Init(); //Initialize the LCD
-    SetLine(1); //Set Line 1
+   // LCD_Init(); //Initialize the LCD
+    //SetLine(1); //Set Line 1
     initMotor();
 
     INTCONbits.GIEH = 1; // enable high priority interrupts
@@ -66,7 +66,7 @@ void main(void) {
     CCP2CONbits.CCP2M2 = 1;
     CCP2CONbits.CCP2M1 = 0;
     CCP2CONbits.CCP2M0 = 1;
-    LEDInit();
+    //LEDInit();
 
     INTCONbits.INT0IE = 1; //Enable external interrupts
     INTCON2bits.INTEDG0 = 0; //Interrupt on falling edge 

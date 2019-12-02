@@ -101,9 +101,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6728
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 6728: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
 [v _OSCCONbits `VS290 ~T0 @X0 0 e@4051 ]
-"9 ./lcd.h
-[; ;./lcd.h: 9: void LCD_Init(void);
-[v _LCD_Init `(v ~T0 @X0 0 ef ]
 "18 ./motor.h
 [; ;./motor.h: 18: void initMotor();
 [v _initMotor `(v ~T0 @X0 0 e? ]
@@ -218,10 +215,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5258
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 5258: extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0xFBA)));
 [v _CCP2CONbits `VS210 ~T0 @X0 0 e@4026 ]
-"6 ./led.h
-[; ;./led.h: 6: void LEDInit();
-[v _LEDInit `(v ~T0 @X0 0 e? ]
-"7236 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
+"7236
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h: 7236:     struct {
 [s S304 :7 `uc 1 :1 `uc 1 ]
 [n S304 . . NOT_RBPU ]
@@ -823,10 +817,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `VS315 ~T0 @X0 1 e ]
 [v _motorR `VS315 ~T0 @X0 1 e ]
 "7
-[; ;./motor.h: 7: volatile char TurningSpeed = 8;
+[; ;./motor.h: 7: volatile char TurningSpeed = 60;
 [v _TurningSpeed `Vuc ~T0 @X0 1 e ]
 [i _TurningSpeed
--> -> 8 `i `uc
+-> -> 60 `i `uc
 ]
 "11 main.c
 [; ;main.c: 11: volatile unsigned int right;
@@ -925,12 +919,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 325 ]
 [e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 326  ]
 [e :U 327 ]
-"48
-[; ;main.c: 48:     LCD_Init();
-[e ( _LCD_Init ..  ]
-"49
-[; ;main.c: 49:     SetLine(1);
-[e ( _SetLine (1 -> -> 1 `i `uc ]
 "50
 [; ;main.c: 50:     initMotor();
 [e ( _initMotor ..  ]
@@ -979,9 +967,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [; ;main.c: 68:     CCP2CONbits.CCP2M0 = 1;
 [e = . . _CCP2CONbits 1 0 -> -> 1 `i `uc ]
-"69
-[; ;main.c: 69:     LEDInit();
-[e ( _LEDInit ..  ]
 "71
 [; ;main.c: 71:     INTCONbits.INT0IE = 1;
 [e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
