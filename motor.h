@@ -4,7 +4,7 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #define _XTAL_FREQ 8000000
 volatile struct DC_motor motorL, motorR;
-volatile char TurningSpeed = 40;
+volatile char TurningSpeed = 8;
 
 struct DC_motor {
     char power; //motor power, out of 100

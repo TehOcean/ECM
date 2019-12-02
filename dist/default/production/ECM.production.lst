@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Thu Nov 28 13:21:13 2019
+                                                                                               Mon Dec 02 10:31:13 2019
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	18F4331
@@ -85,7 +85,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
     71                           	opt callstack 0
     72                           
     73                           ;initializer for _TurningSpeed
-    74  00084A  28                 	db	40
+    74  00084A  08                 	db	8
     75  0000                     _TMR1	set	4046
     76  0000                     _LATD	set	3980
     77  0000                     _LATC	set	3979
@@ -463,7 +463,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    449  0002C2  8CCD               	bsf	205,6,c	;volatile
    450  0002C4                     l227:
    451                           
-   452                           ;main.c: 90:                 if ((left - right) < 100){
+   452                           ;main.c: 90:                 if ((left - right) > 100){
    453  0002C4  5028               	movf	_right^0,w,c	;volatile
    454  0002C6  5C26               	subwf	_left^0,w,c	;volatile
    455  0002C8  6E24               	movwf	??_main^0,c
@@ -471,10 +471,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    457  0002CC  5827               	subwfb	(_left+1)^0,w,c	;volatile
    458  0002CE  6E25               	movwf	(??_main+1)^0,c
    459  0002D0  5025               	movf	(??_main+1)^0,w,c
-   460  0002D2  E107               	bnz	u481
-   461  0002D4  0E64               	movlw	100
+   460  0002D2  E109               	bnz	u480
+   461  0002D4  0E65               	movlw	101
    462  0002D6  5C24               	subwf	??_main^0,w,c
-   463  0002D8  B0D8               	btfsc	status,0,c
+   463  0002D8  A0D8               	btfss	status,0,c
    464  0002DA  EF71  F001         	goto	u481
    465  0002DE  EF73  F001         	goto	u480
    466  0002E2                     u481:
@@ -493,7 +493,7 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    479  0002F6  ECB5  F003         	call	_turnLeft	;wreg free
    480  0002FA                     l1591:
    481                           
-   482                           ;main.c: 94:                 if ((left - right) > 100) {
+   482                           ;main.c: 94:                 if ((left - right) < 100) {
    483  0002FA  5028               	movf	_right^0,w,c	;volatile
    484  0002FC  5C26               	subwf	_left^0,w,c	;volatile
    485  0002FE  6E24               	movwf	??_main^0,c
@@ -501,10 +501,10 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
    487  000302  5827               	subwfb	(_left+1)^0,w,c	;volatile
    488  000304  6E25               	movwf	(??_main+1)^0,c
    489  000306  5025               	movf	(??_main+1)^0,w,c
-   490  000308  E109               	bnz	u490
-   491  00030A  0E65               	movlw	101
+   490  000308  E107               	bnz	u491
+   491  00030A  0E64               	movlw	100
    492  00030C  5C24               	subwf	??_main^0,w,c
-   493  00030E  A0D8               	btfss	status,0,c
+   493  00030E  B0D8               	btfsc	status,0,c
    494  000310  EF8C  F001         	goto	u491
    495  000314  EF8E  F001         	goto	u490
    496  000318                     u491:
@@ -2775,7 +2775,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Thu Nov 28 13:21:13 2019
+Symbol Table                                                                                   Mon Dec 02 10:31:13 2019
 
                           l20 05BA                            l23 070E                            l31 06AA  
                           l17 083A                            l26 04BC                            l90 0792  

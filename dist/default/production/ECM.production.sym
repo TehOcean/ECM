@@ -349,7 +349,7 @@ cstackCOMRAM 1 3D COMRAM 1 1
 %locals
 dist/default/production\ECM.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f4331.h
-C:\Users\ossia\AppData\Local\Temp\s6gs.s
+C:\Users\ossia\AppData\Local\Temp\sld4.s
 2043 7BE 0 CODE 0
 2045 7BE 0 CODE 0
 2048 7BE 0 CODE 0
@@ -599,7 +599,7 @@ lcd.c
 9 830 0 CODE 0
 10 838 0 CODE 0
 11 83A 0 CODE 0
-C:\Users\ossia\AppData\Local\Temp\s6gs.s
+C:\Users\ossia\AppData\Local\Temp\sld4.s
 4662 18 0 CODE 0
 main.c
 21 18 0 CODE 0

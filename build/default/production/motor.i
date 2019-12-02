@@ -5126,7 +5126,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 volatile struct DC_motor motorL, motorR;
-volatile char TurningSpeed = 40;
+volatile char TurningSpeed = 8;
 
 struct DC_motor {
     char power;

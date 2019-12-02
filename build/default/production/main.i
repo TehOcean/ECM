@@ -5144,7 +5144,7 @@ void ClearLCD();
 
 
 volatile struct DC_motor motorL, motorR;
-volatile char TurningSpeed = 40;
+volatile char TurningSpeed = 8;
 
 struct DC_motor {
     char power;
@@ -5438,11 +5438,11 @@ void main(void) {
     T1CONbits.T1RUN = 1;
 # 89 "main.c"
     while (1) {
-                if ((left - right) < 100){
+                if ((left - right) > 100){
                     turnLeft(&motorL, &motorR);
                 }
 
-                if ((left - right) > 100) {
+                if ((left - right) < 100) {
                     turnRight(&motorL, &motorR);
                 }
                 else {

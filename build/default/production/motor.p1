@@ -615,10 +615,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _motorL `VS315 ~T0 @X0 1 e ]
 [v _motorR `VS315 ~T0 @X0 1 e ]
 "7
-[; ;./motor.h: 7: volatile char TurningSpeed = 40;
+[; ;./motor.h: 7: volatile char TurningSpeed = 8;
 [v _TurningSpeed `Vuc ~T0 @X0 1 e ]
 [i _TurningSpeed
--> -> 40 `i `uc
+-> -> 8 `i `uc
 ]
 "4 motor.c
 [; ;motor.c: 4: void initMotor() {

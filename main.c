@@ -87,11 +87,11 @@ void main(void) {
     //        LCD_String(buf); //output string to LCD
     //LEDout(84);
     while (1) {
-                if ((left - right) < 100){
+                if ((left - right) > 100){
                     turnLeft(&motorL, &motorR); 
                 }
                 
-                if ((left - right) > 100) {
+                if ((left - right) < 100) {
                     turnRight(&motorL, &motorR);
                 }
                 else {
