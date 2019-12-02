@@ -13,8 +13,8 @@ void E_TOG(void) {
 
 void LCDout(unsigned char number) {
     //set data pins using the four bits from number
-    LATDbits.LATD3 = number & 0b0001;
-    LATDbits.LATD2 = (number & 0b0010) >> 1;
+    LATEbits.LATE1 = number & 0b0001;
+    LATEbits.LATE2 = (number & 0b0010) >> 1;
     LATDbits.LATD0 = (number & 0b0100) >> 2;
     LATDbits.LATD1 = (number & 0b1000) >> 3;
     E_TOG();
@@ -39,15 +39,15 @@ void LCD_Init(void) {
     // set initial LAT output values (they start up in a random state)
     TRISAbits.RA6 = 0;
     TRISCbits.RC0 = 0;
-    TRISDbits.RD3 = 0;
-    TRISDbits.RD2 = 0;
+    TRISEbits.RE1 = 0;
+    TRISEbits.RE2 = 0;
     TRISDbits.RD0 = 0;
     TRISDbits.RD1 = 0;
 
     LATAbits.LA6 = 0;
     LATCbits.LC0 = 0;
-    LATDbits.LD1 = 0;
-    LATDbits.LD2 = 0;
+    LATEbits.LE1 = 0;
+    LATEbits.LE2 = 0;
     LATDbits.LD0 = 0;
     LATDbits.LD1 = 0;
 
